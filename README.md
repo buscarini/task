@@ -20,9 +20,11 @@ it, simply add the following line to your Podfile:
 pod "Task"
 ```
 
+Check the tests for usage examples.
+
 ## Author
 
-buscarini@gmail.com, buscarini@gmail.com
+JM. Sánchez, josema@treenovum.es
 
 ## License
 
