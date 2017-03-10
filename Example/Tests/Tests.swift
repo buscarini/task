@@ -43,6 +43,45 @@ class Tests: XCTestCase {
 		
 		self.waitForExpectations(timeout: 1.0, handler: nil)
 	}
+	
+	func testMap() {
+		let expectation = self.expectation(description: "task mapped")
+		
+		Task.of("blah")
+			.map({ string in
+				return string.characters.count
+			})
+			.fork({ error in
+				XCTFail()
+			},
+			{ value in
+				XCTAssert(value == 4)
+				expectation.fulfill()
+			})
+	
+	
+		self.waitForExpectations(timeout: 1.0, handler: nil)
+	}
+
+	
+	func testFlatMap() {
+		let expectation = self.expectation(description: "task chained")
+		
+		Task.of("blah")
+			.flatMap({ string in
+				return Task.of(string.characters.count)
+			})
+			.fork({ error in
+				XCTFail()
+			},
+			{ value in
+				XCTAssert(value == 4)
+				expectation.fulfill()
+			})
+	
+	
+		self.waitForExpectations(timeout: 1.0, handler: nil)
+	}
     
 //    func testPerformanceExample() {
 //        // This is an example of a performance test case.
