@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Task'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of Task.'
+  s.version          = '0.0.1'
+  s.summary          = 'A task encapsulates async code in a pure way.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,17 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Tasks are similar to promises, but they have to be executed explicitly.
                        DESC
 
-  s.homepage         = 'https://github.com/buscarini@gmail.com/Task'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'http://gitlab.treenovum-servic.es/iOS/Task'
+
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'buscarini@gmail.com' => 'buscarini@gmail.com' }
-  s.source           = { :git => 'https://github.com/buscarini@gmail.com/Task.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'JM. Sánchez' => 'josema@treenovum.es' }
+  s.source           = { :git => 'git@gitlab.treenovum-servic.es:iOS/Task.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'Task/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Task' => ['Task/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
