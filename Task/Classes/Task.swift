@@ -56,8 +56,14 @@ public class Task<T> {
 	public static func liftA2<A, B, C>(_ fTask: Task<(A) -> (B) -> C>, _ first: Task<A>, _ second: Task<B>) -> Task<C> {
 		return Task.ap(Task.ap(fTask, first),second)
 	}
+
+	public static func ap<A, B, C>(_ fTask: Task<(A, B) -> C>, _ first: Task<A>, _ second: Task<B>) -> Task<C> {
+		return fTask.flatMap { f in
+			return liftA2(Task<(A) -> (B) -> C>.of(curry(f)), first, second)
+		}
+	}
 	
-	public static func ap<A, B>(_ one: Task<(A)->B>,_ other: Task<A>) -> Task<B> {
+	public static func ap<A, B>(_ fTask: Task<(A) -> B>, _ other: Task<A>) -> Task<B> {
 		return Task<B>({ (reject: @escaping (Error) -> (), resolve: @escaping (B) -> ()) in
 			var f: ((A)->B)?
 			var val: A?
@@ -76,7 +82,7 @@ public class Task<T> {
 				resolve(f(val))
 			}
 			
-			one.fork(guardReject, { loadedF in
+			fTask.fork(guardReject, { loadedF in
 				guard !rejected else {
 					return
 				}
@@ -96,7 +102,7 @@ public class Task<T> {
 				tryResolve()
 			})
 		}, cleanup: {
-			one.cleanup?()
+			fTask.cleanup?()
 			other.cleanup?()
 		})
 	}
