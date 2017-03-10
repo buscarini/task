@@ -38,7 +38,7 @@ class Arrays: XCTestCase {
 	
 		let expectation = self.expectation(description: "task succeeded")
 	
-		 sequence([ Task.of(1), Task.of(2), Task.of(3)])
+		 sequence([ Task.of(1), Task.of(2), Task.of(3)].map { delayed(1, $0) })
 			.fork({ error in
 				XCTFail()
 			},
@@ -50,7 +50,68 @@ class Arrays: XCTestCase {
 				expectation.fulfill()
 			})
 		
-		self.waitForExpectations(timeout: 1.0, handler: nil)
+		self.waitForExpectations(timeout: 1.1, handler: nil)
     }
 
+	func testSequenceSerial() {
+	
+		let expectation = self.expectation(description: "task succeeded")
+	
+		var value = 0
+	
+		let first = Task<Int>({ (reject, resolve) in
+			guard value == 0 else {
+				reject(self.exampleError())
+				return
+			}
+			
+			value += 1
+			print("\(Date())")
+			
+			resolve(value)
+		})
+		
+		let second = Task<Int>({ (reject, resolve) in
+			guard value == 1 else {
+				reject(self.exampleError())
+				return
+			}
+			
+			value += 1
+			print("\(Date())")
+			
+			resolve(value)
+		})
+		
+		let third = Task<Int>({ (reject, resolve) in
+			guard value == 2 else {
+				reject(self.exampleError())
+				return
+			}
+			
+			value += 1
+			print("\(Date())")
+			
+			resolve(value)
+		})
+	
+		let now = Date()
+
+		sequenceSerial([ first, second, third ].map { delayed(1, $0) })
+			.fork({ error in
+				XCTFail()
+			},
+			{ values in
+				print("\(now.timeIntervalSinceNow)")
+				XCTAssert(-now.timeIntervalSinceNow > 3.0)
+			
+				XCTAssert(values.count == 3)
+				XCTAssert(values[0] == 1)
+				XCTAssert(values[1] == 2)
+				XCTAssert(values[2] == 3)
+				expectation.fulfill()
+			})
+		
+		self.waitForExpectations(timeout: 4.1, handler: nil)
+    }
 }

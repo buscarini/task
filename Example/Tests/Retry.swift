@@ -73,12 +73,11 @@ class Retry: XCTestCase {
 	
 		let now = Date()
 	
-		retryDelayed(times: 3, delay: 1, task)
+		retry(times: 3, delay: 1, task)
 			.fork({ error in
 				XCTFail()
 			},
 			{ value in
-				print("delay: \(now.timeIntervalSinceNow)")
 				XCTAssert(-now.timeIntervalSinceNow > 1.9)
 				
 				XCTAssert(value == 3)

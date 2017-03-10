@@ -16,10 +16,17 @@ public func retry<A>(_ times: UInt, _ task: Task<A>) -> Task<A> {
 	return task <|> retry(times-1, task)
 }
 
-public func retryDelayed<A>(times: UInt, delay: TimeInterval, _ task: Task<A>) -> Task<A> {
+public func retry<A>(times: UInt, modify: (Task<A>) -> Task<A>, _ task: Task<A>) -> Task<A> {
 	guard times > 0 else {
 		return task
 	}
 
-	return task <|> delayed(delay, retryDelayed(times: times-1, delay: delay, task))
+	return task <|> modify(retry(times: times-1, modify: modify, task))
 }
+
+public func retry<A>(times: UInt, delay: TimeInterval, _ task: Task<A>) -> Task<A> {
+	return retry(times: times, modify: { task in
+		return delayed(delay, task)
+	}, task)
+}
+
