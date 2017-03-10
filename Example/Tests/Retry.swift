@@ -65,4 +65,26 @@ class Retry: XCTestCase {
 		
 		self.waitForExpectations(timeout: 1.0, handler: nil)
 	}
+	
+	func testRetryDelayed() {
+		let expectation = self.expectation(description: "task is retried with a delay")
+		
+		let task = fails2Times()
+	
+		let now = Date()
+	
+		retryDelayed(times: 3, delay: 1, task)
+			.fork({ error in
+				XCTFail()
+			},
+			{ value in
+				print("delay: \(now.timeIntervalSinceNow)")
+				XCTAssert(-now.timeIntervalSinceNow > 1.9)
+				
+				XCTAssert(value == 3)
+				expectation.fulfill()
+			})
+		
+		self.waitForExpectations(timeout: 2.5, handler: nil)
+	}
 }
