@@ -15,7 +15,7 @@ extension Array {
 		
 			let concat = Task<([T], [T]) -> [T]>.of(+)
 			
-			return Task<([T], [T]) -> [T]>.ap(concat, acc, current)
+			return ap(concat, acc, current)
 		}
 	}
 }
