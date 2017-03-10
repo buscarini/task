@@ -1,5 +1,5 @@
 PODS:
-  - Task (0.1.0)
+  - Task (0.0.2)
 
 DEPENDENCIES:
   - Task (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Task: 64060be8d855233ac56df6842f86bf0180c4ba71
+  Task: 4baeef67387a8156561b942781841d02d4be3d62
 
 PODFILE CHECKSUM: 3007994ad45811f11571508f84ce12f84c78058d
 

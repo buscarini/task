@@ -19,6 +19,7 @@
 		AC477EF41E72E9B300FAB224 /* Applicative.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC477EF31E72E9B300FAB224 /* Applicative.swift */; };
 		AC477EF61E72E9DE00FAB224 /* Monad.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC477EF51E72E9DE00FAB224 /* Monad.swift */; };
 		AC477EF81E72EA4500FAB224 /* Functor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC477EF71E72EA4500FAB224 /* Functor.swift */; };
+		AC477EFC1E72EDCD00FAB224 /* Retry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC477EFB1E72EDCD00FAB224 /* Retry.swift */; };
 		AC999E2E1E72AA2500710A2B /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC999E2D1E72AA2500710A2B /* Arrays.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		AC477EF31E72E9B300FAB224 /* Applicative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Applicative.swift; sourceTree = "<group>"; };
 		AC477EF51E72E9DE00FAB224 /* Monad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monad.swift; sourceTree = "<group>"; };
 		AC477EF71E72EA4500FAB224 /* Functor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functor.swift; sourceTree = "<group>"; };
+		AC477EFB1E72EDCD00FAB224 /* Retry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Retry.swift; sourceTree = "<group>"; };
 		AC999E2D1E72AA2500710A2B /* Arrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
 		DEB00F43F09DAE1EC622D3FF /* Pods_Task_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1D3DC6C6A490B3C1A19320 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				AC477EF51E72E9DE00FAB224 /* Monad.swift */,
 				AC477EF31E72E9B300FAB224 /* Applicative.swift */,
 				AC477EF01E72E8A500FAB224 /* Alternative.swift */,
+				AC477EFB1E72EDCD00FAB224 /* Retry.swift */,
 				AC999E2D1E72AA2500710A2B /* Arrays.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -389,6 +392,7 @@
 				AC477EF61E72E9DE00FAB224 /* Monad.swift in Sources */,
 				AC477EF21E72E8B800FAB224 /* Alternative.swift in Sources */,
 				AC477EF81E72EA4500FAB224 /* Functor.swift in Sources */,
+				AC477EFC1E72EDCD00FAB224 /* Retry.swift in Sources */,
 				AC477EF41E72E9B300FAB224 /* Applicative.swift in Sources */,
 				AC999E2E1E72AA2500710A2B /* Arrays.swift in Sources */,
 			);
