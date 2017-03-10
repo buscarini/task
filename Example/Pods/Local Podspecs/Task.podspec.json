@@ -1,0 +1,22 @@
+{
+  "name": "Task",
+  "version": "0.1.0",
+  "summary": "A short description of Task.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/buscarini@gmail.com/Task",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "buscarini@gmail.com": "buscarini@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/buscarini@gmail.com/Task.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Task/Classes/**/*"
+}

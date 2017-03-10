@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Task_Example' do
+  pod 'Task', :path => '../'
+
+  target 'Task_Tests' do
+    inherit! :search_paths
+
+	pod 'Task', :path => '../'  
+  end
+end
