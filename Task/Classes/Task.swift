@@ -120,4 +120,19 @@ public func <*><A, B>(fTask: Task<(A) -> B>, first: Task<A>) -> Task<B> {
     return ap(fTask, first)
 }
 
+// MARK: Alternative
+public func or<A>(_ first: Task<A>, _ second: Task<A>) -> Task<A> {
+	return Task<A>({ (reject, resolve) in
+		first.fork({ _ in
+			second.fork(reject, resolve)
+		}, resolve)
+	})
+}
+
+infix operator <|>: AdditionPrecedence
+public func <|><A>(first: Task<A>, second: Task<A>) -> Task<A> {
+    return or(first, second)
+}
+
+
 
