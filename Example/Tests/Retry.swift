@@ -13,6 +13,7 @@ class Retry: XCTestCase {
 	var value:Int = 0
 	
 	override func setUp() {
+		super.setUp()
 		self.value = 0
 	}
 

@@ -1,6 +1,6 @@
 {
   "name": "Task",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "summary": "A task encapsulates async code in a pure way.",
   "description": "Tasks are similar to promises, but they have to be executed explicitly. This fact makes them pure, and allows to delay execution until needed.",
   "homepage": "http://gitlab.treenovum-servic.es/iOS/Task",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "git@gitlab.treenovum-servic.es:iOS/Task.git",
-    "tag": "0.0.2"
+    "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"

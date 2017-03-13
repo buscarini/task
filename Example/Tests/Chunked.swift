@@ -1,0 +1,48 @@
+//
+//  Chunked.swift
+//  Task
+//
+//  Created by José Manuel Sánchez Peñarroja on 13/3/17.
+//  Copyright © 2017 CocoaPods. All rights reserved.
+//
+
+import XCTest
+import Task
+
+class Chunked: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    func testChunks() {
+		let values = Array(1...10)
+		let tasks = values
+				.map { Task.of($0) }
+				.map { delayed(1, $0) }
+		
+		let taskChunks = tasks.chunked(by: 5) // [[task1, …, task5],[task6, …, task10]]
+			.map { sequence($0) } // [ task[], task[] ]
+		
+		let expectation = self.expectation(description: "tasks completed")
+		
+		let now = Date()
+
+		sequenceSerial(taskChunks) // task[]
+			.fork({ _ in
+				XCTFail()
+			},
+			{ results in
+				XCTAssert(results == values)
+				XCTAssert(-now.timeIntervalSinceNow > 2.0)
+				
+				expectation.fulfill()
+			})
+		
+		self.waitForExpectations(timeout: 2.5, handler: nil)
+    }
+}
