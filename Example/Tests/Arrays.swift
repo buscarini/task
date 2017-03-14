@@ -34,11 +34,11 @@ class Arrays: XCTestCase {
 		self.waitForExpectations(timeout: 1.0, handler: nil)
     }
 	
-	func testSequence() {
+	func testParallel() {
 	
 		let expectation = self.expectation(description: "task succeeded")
 	
-		 sequence([ Task.of(1), Task.of(2), Task.of(3)].map { delayed(1, $0) })
+		 parallel([ Task.of(1), Task.of(2), Task.of(3)].map { delayed(1, $0) })
 			.fork({ error in
 				XCTFail()
 			},
@@ -53,7 +53,7 @@ class Arrays: XCTestCase {
 		self.waitForExpectations(timeout: 1.1, handler: nil)
     }
 
-	func testSequenceSerial() {
+	func testSequence() {
 	
 		let expectation = self.expectation(description: "task succeeded")
 	
@@ -97,7 +97,7 @@ class Arrays: XCTestCase {
 	
 		let now = Date()
 
-		sequenceSerial([ first, second, third ].map { delayed(1, $0) })
+		sequence([ first, second, third ].map { delayed(1, $0) })
 			.fork({ error in
 				XCTFail()
 			},

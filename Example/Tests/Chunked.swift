@@ -26,13 +26,13 @@ class Chunked: XCTestCase {
 				.map { delayed(1, $0) }
 		
 		let taskChunks = tasks.chunked(by: 5) // [[task1, …, task5],[task6, …, task10]]
-			.map { sequence($0) } // [ task[], task[] ]
+			.map { parallel($0) } // [ task[], task[] ]
 		
 		let expectation = self.expectation(description: "tasks completed")
 		
 		let now = Date()
 
-		sequenceSerial(taskChunks) // task[]
+		sequence(taskChunks) // task[]
 			.fork({ _ in
 				XCTFail()
 			},
