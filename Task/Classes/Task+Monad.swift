@@ -17,6 +17,6 @@ extension Task {
 			{ value in
 				f(value).fork(reject, resolve)
 			})
-		}, cleanup: cleanup)
+		}, cancel: cancel)
 	}
 }

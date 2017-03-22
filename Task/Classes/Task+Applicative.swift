@@ -56,9 +56,9 @@ public func ap<A, B>(_ fTask: Task<(A) -> B>, _ other: Task<A>) -> Task<B> {
 			
 			tryResolve()
 		})
-	}, cleanup: {
-		fTask.cleanup?()
-		other.cleanup?()
+	}, cancel: {
+		fTask.cancel()
+		other.cancel()
 	})
 }
 

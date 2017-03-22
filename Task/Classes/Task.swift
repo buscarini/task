@@ -9,14 +9,54 @@
 import Foundation
 
 open class Task<T> {
-	public typealias Computation = (@escaping (Error) -> (), @escaping (T) -> ()) ->()
+	public typealias ErrorCallback = (Error) -> ()
+	public typealias ResultCallback = (T) -> ()
+	public typealias EmptyCallback = () -> ()
 
-	public let fork: Computation
-	let cleanup: (() -> ())?
+	public typealias Computation = (@escaping ErrorCallback, @escaping ResultCallback) -> ()
+
+	private let _fork: Computation
+	private let _cancel: (() -> ())?
 	
-	public init(_ computation: @escaping Computation, cleanup: (() -> ())? = nil) {
-		self.fork = computation
-		self.cleanup = cleanup
+	private var _cancelled = false
+	private let cancelSyncQueue = DispatchQueue(label: "task_cancel")
+	private var cancelled: Bool {
+		get {
+			var result = false
+			
+			cancelSyncQueue.sync {
+				result = self._cancelled
+			}
+			return result
+		}
+		
+		set {
+			cancelSyncQueue.sync {
+				self._cancelled = newValue
+			}
+		}
+	}
+	
+	
+	
+	public init(_ computation: @escaping Computation, cancel: EmptyCallback? = nil) {
+		self._fork = computation
+		self._cancel = cancel
+	}
+	
+	public func fork(_ reject: @escaping ErrorCallback, _ resolve: @escaping ResultCallback) {
+		self._fork({ error in
+			guard !self.cancelled else { return }
+			reject(error)
+		}, { result in
+			guard !self.cancelled else { return }
+			resolve(result)
+		})
+	}
+	
+	public func cancel() {
+		self.cancelled = true
+		self._cancel?()
 	}
 	
 	public static func of(_ value: T) -> Task {

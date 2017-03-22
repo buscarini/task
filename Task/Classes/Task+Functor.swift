@@ -17,6 +17,6 @@ extension Task {
 			{ value in
 				resolve(f(value))
 			})
-		}, cleanup: cleanup)
+		}, cancel: cancel)
 	}
 }
