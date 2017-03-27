@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 Tasks are similar to promises, but they have to be executed explicitly. This fact makes them pure, and allows to delay execution until needed.
                        DESC
 
-  s.homepage         = 'http://gitlab.treenovum-servic.es/iOS/Task'
+  s.homepage         = 'https://github.com/buscarini/task'
 
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'JM. Sánchez' => 'josema@treenovum.es' }
-  s.source           = { :git => 'git@gitlab.treenovum-servic.es:iOS/Task.git', :tag => s.version.to_s }
+  s.author           = { 'José Manuel Sánchez' => 'buscarini@gmail.com' }
+  s.source           = { :git => 'git@github.com:buscarini/task.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
