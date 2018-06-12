@@ -9,8 +9,8 @@
 import Foundation
 
 extension Task {
-	public func map<U>(_ f: @escaping (T) -> (U)) -> Task<U> {
-		return Task<U>({ (reject: @escaping (Error) -> (), resolve: @escaping (U) -> ()) in
+	public func map<U>(_ f: @escaping (T) -> (U)) -> Task<E, U> {
+		return Task<E, U>({ (reject: @escaping (E) -> (), resolve: @escaping (U) -> ()) in
 			return self.fork({ error in
 				reject(error)
 			},

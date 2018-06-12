@@ -8,8 +8,8 @@
 
 import Foundation
 
-public func delayed<A>(_ delay: TimeInterval, _ task: Task<A>) -> Task<A> {
-	return Task<A>({ (reject, resolve) in
+public func delayed<E, A>(_ delay: TimeInterval, _ task: Task<E, A>) -> Task<E, A> {
+	return Task<E, A>({ (reject, resolve) in
 		DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
 			task.fork(reject, resolve)
 		}

@@ -17,7 +17,7 @@ class Delay: XCTestCase {
 	func testDelay() {
 		let expectation = self.expectation(description: "task is delayed")
 		
-		let task = Task.of(1)
+		let task = Task<Error, Int>.of(1)
 	
 		let now = Date()
 	
@@ -38,7 +38,7 @@ class Delay: XCTestCase {
     func testDelayFail() {
 		let expectation = self.expectation(description: "task is delayed with failure")
 		
-		let task = Task<Int>.rejected(exampleError())
+		let task = Task<Error, Int>.rejected(exampleError())
 		let now = Date()
 
 		delayed(1, task)

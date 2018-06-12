@@ -12,7 +12,7 @@ class Tests: XCTestCase {
 	
 		let expectation = self.expectation(description: "task succeeded")
 	
-		Task.of(22)
+		Task<Error, Int>.of(22)
 			.fork({ error in
 				XCTFail()
 			},

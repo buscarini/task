@@ -17,9 +17,9 @@ class Functor: XCTestCase {
 	func testMap() {
 		let expectation = self.expectation(description: "task mapped")
 		
-		Task.of("blah")
+		Task<Error, String>.of("blah")
 			.map({ string in
-				return string.characters.count
+				return string.count
 			})
 			.fork({ error in
 				XCTFail()
@@ -36,9 +36,9 @@ class Functor: XCTestCase {
 	func testMapFail() {
 		let expectation = self.expectation(description: "task not mapped")
 		
-		Task<String>.rejected(exampleError())
+		Task<Error, String>.rejected(exampleError())
 			.map({ string in
-				return string.characters.count
+				return string.count
 			})
 			.fork({ error in
 				expectation.fulfill()

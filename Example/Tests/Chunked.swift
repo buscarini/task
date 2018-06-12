@@ -22,7 +22,7 @@ class Chunked: XCTestCase {
     func testChunks() {
 		let values = Array(1...10)
 		let tasks = values
-				.map { Task.of($0) }
+				.map { Task<Error, Int>.of($0) }
 				.map { delayed(1, $0) }
 		
 		let taskChunks = tasks.chunked(by: 5) // [[task1, …, task5],[task6, …, task10]]

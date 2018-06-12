@@ -8,8 +8,8 @@
 
 import Foundation
 
-public func or<A>(_ first: Task<A>, _ second: Task<A>) -> Task<A> {
-	return Task<A>({ (reject, resolve) in
+public func or<E, A>(_ first: Task<E, A>, _ second: Task<E, A>) -> Task<E, A> {
+	return Task<E, A>({ (reject, resolve) in
 		first.fork({ _ in
 			second.fork(reject, resolve)
 		}, resolve)
@@ -17,7 +17,7 @@ public func or<A>(_ first: Task<A>, _ second: Task<A>) -> Task<A> {
 }
 
 infix operator <|>: AdditionPrecedence
-public func <|><A>(first: Task<A>, second: Task<A>) -> Task<A> {
+public func <|><E, A>(first: Task<E, A>, second: Task<E, A>) -> Task<E, A> {
     return or(first, second)
 }
 

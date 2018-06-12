@@ -17,17 +17,14 @@ class Monad: XCTestCase {
     func testFlatMap() {
 		let expectation = self.expectation(description: "task chained")
 		
-		Task.of("blah")
+		Task<Never, String>.of("blah")
 			.flatMap({ string in
-				return Task.of(string.characters.count)
+				return Task.of(string.count)
 			})
-			.fork({ error in
-				XCTFail()
-			},
-			{ value in
+			.run { value in
 				XCTAssert(value == 4)
 				expectation.fulfill()
-			})
+			}
 	
 	
 		self.waitForExpectations(timeout: 1.0, handler: nil)
@@ -36,9 +33,9 @@ class Monad: XCTestCase {
 	func testFlatMapFail() {
 		let expectation = self.expectation(description: "task not chained")
 		
-		Task<String>.rejected(exampleError())
+		Task<Error, String>.rejected(exampleError())
 			.flatMap({ string in
-				return Task.of(string.characters.count)
+				return Task.of(string.count)
 			})
 			.fork({ error in
 				expectation.fulfill()

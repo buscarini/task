@@ -18,7 +18,7 @@ class Applicative: XCTestCase {
     func testAp() {
 		let expectation = self.expectation(description: "task ap")
 		
-		ap(Task.of({ x in x*2 }), Task.of(1))
+		ap(Task.of({ x in x*2 }), Task<Never, Int>.of(1))
 			.fork({ error in
 				XCTFail()
 			},
@@ -34,7 +34,7 @@ class Applicative: XCTestCase {
 	func testApFailure() {
 		let expectation = self.expectation(description: "task ap failed")
 		
-		ap(Task<(Int) -> Int>.rejected(exampleError()), Task.of(1))
+		ap(Task<Error, (Int) -> Int>.rejected(exampleError()), Task<Error, Int>.of(1))
 			.fork({ error in
 				expectation.fulfill()
 			},
@@ -50,7 +50,7 @@ class Applicative: XCTestCase {
 	func testAp2Params() {
 		let expectation = self.expectation(description: "task ap with 2 params")
 		
-		ap(Task.of(+), Task.of(1), Task.of(3))
+		ap(Task.of(+), Task<Never, Int>.of(1), Task<Never, Int>.of(3))
 			.fork({ error in
 				XCTFail()
 			},
@@ -66,7 +66,7 @@ class Applicative: XCTestCase {
 	func testAp2ParamsFailure() {
 		let expectation = self.expectation(description: "task ap with 2 params f failed")
 		
-		ap(Task<(Int, Int) -> Int>.rejected(exampleError()), Task.of(1), Task.of(3))
+		ap(Task<Error, (Int, Int) -> Int>.rejected(exampleError()), Task.of(1), Task.of(3))
 			.fork({ error in
 				expectation.fulfill()
 			},
@@ -111,7 +111,7 @@ class Applicative: XCTestCase {
 	func testApOperator() {
 		let expectation = self.expectation(description: "task ap operator with 2 params")
 		
-		let add = Task.of({ (x: Int) in
+		let add = Task<Error, (Int) -> (Int) -> Int>.of({ (x: Int) in
 			return { (y: Int) in
 				return x+y
 			}
@@ -133,7 +133,7 @@ class Applicative: XCTestCase {
 	func testApOperator3Args() {
 		let expectation = self.expectation(description: "task ap operator with 3 params")
 		
-		let add = Task.of({ (x: Int) in
+		let add = Task<Never, (Int) -> (Int) -> (Int) -> Int>.of({ (x: Int) in
 			return { (y: Int) in
 				return { (z: Int) in
 					return x+y+z

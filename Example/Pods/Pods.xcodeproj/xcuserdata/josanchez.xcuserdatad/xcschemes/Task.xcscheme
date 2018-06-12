@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '46DF186DC227E1F2ACEF10F6D1A6DC1C'
-               BlueprintName = 'Task'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Task.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "46DF186DC227E1F2ACEF10F6D1A6DC1C"
+               BlueprintName = "Task"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "Task.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

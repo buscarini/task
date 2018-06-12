@@ -8,8 +8,8 @@
 
 import Foundation
 
-open class Task<T> {
-	public typealias ErrorCallback = (Error) -> ()
+open class Task<E, T> {
+	public typealias ErrorCallback = (E) -> ()
 	public typealias ResultCallback = (T) -> ()
 	public typealias EmptyCallback = () -> ()
 
@@ -37,8 +37,6 @@ open class Task<T> {
 		}
 	}
 	
-	
-	
 	public init(_ computation: @escaping Computation, cancel: EmptyCallback? = nil) {
 		self._fork = computation
 		self._cancel = cancel
@@ -65,7 +63,7 @@ open class Task<T> {
 		})
 	}
 	
-	public static func rejected(_ error: Error) -> Task {
+	public static func rejected(_ error: E) -> Task {
 		return Task({ (reject, _) in
 			return reject(error)
 		})

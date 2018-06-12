@@ -19,7 +19,7 @@ class Arrays: XCTestCase {
 	
 		let expectation = self.expectation(description: "task succeeded")
 	
-		[1, 2, 3].traverse(Task<Int>.of)
+		[1, 2, 3].traverse(Task<Never, Int>.of)
 			.fork({ error in
 				XCTFail()
 			},
@@ -38,7 +38,7 @@ class Arrays: XCTestCase {
 	
 		let expectation = self.expectation(description: "task succeeded")
 	
-		 parallel([ Task.of(1), Task.of(2), Task.of(3)].map { delayed(1, $0) })
+		 parallel([ Task<Error, Int>.of(1), Task.of(2), Task.of(3)].map { delayed(1, $0) })
 			.fork({ error in
 				XCTFail()
 			},
@@ -59,7 +59,7 @@ class Arrays: XCTestCase {
 	
 		var value = 0
 	
-		let first = Task<Int>({ (reject, resolve) in
+		let first = Task<Error, Int>({ (reject, resolve) in
 			guard value == 0 else {
 				reject(self.exampleError())
 				return
@@ -71,7 +71,7 @@ class Arrays: XCTestCase {
 			resolve(value)
 		})
 		
-		let second = Task<Int>({ (reject, resolve) in
+		let second = Task<Error, Int>({ (reject, resolve) in
 			guard value == 1 else {
 				reject(self.exampleError())
 				return
@@ -83,7 +83,7 @@ class Arrays: XCTestCase {
 			resolve(value)
 		})
 		
-		let third = Task<Int>({ (reject, resolve) in
+		let third = Task<Error, Int>({ (reject, resolve) in
 			guard value == 2 else {
 				reject(self.exampleError())
 				return

@@ -30,5 +30,6 @@ Tasks are similar to promises, but they have to be executed explicitly. This fac
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'Task/Classes/**/*'
+  s.swift_version = '4.1'
 
 end

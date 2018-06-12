@@ -9,7 +9,7 @@
 import Foundation
 
 extension Collection {
-    public func chunked(by distance: IndexDistance) -> [[SubSequence.Iterator.Element]] {
+    public func chunked(by distance: Int) -> [[SubSequence.Iterator.Element]] {
         var index = startIndex
         let iterator: AnyIterator<Array<SubSequence.Iterator.Element>> = AnyIterator {
             defer {

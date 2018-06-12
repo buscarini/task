@@ -23,7 +23,7 @@ class Cancel: XCTestCase {
 		
 		var httpTask = session.dataTask(with: url)
 		
-		let task = Task<Data?>({ (reject, resolve) in
+		let task = Task<Error, Data?>({ (reject, resolve) in
 		
 			httpTask = session.dataTask(with: url) { data, response, error in
 				if let error = error {

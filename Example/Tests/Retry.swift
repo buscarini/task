@@ -21,8 +21,8 @@ class Retry: XCTestCase {
 		return NSError(domain: "tests", code: 1, userInfo: nil)
 	}
 	
-	func fails2Times() -> Task<Int> {
-		return Task<Int>({ (reject, resolve) in
+	func fails2Times() -> Task<Error, Int> {
+		return Task<Error, Int>({ (reject, resolve) in
 			self.value += 1
 			
 			if self.value < 3 {

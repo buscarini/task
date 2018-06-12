@@ -9,44 +9,44 @@
 import Foundation
 
 extension Array {
-	public func traverse<T>(_ f: @escaping (Element) -> Task<T>) -> Task<[T]> {
+	public func traverse<E, T>(_ f: @escaping (Element) -> Task<E, T>) -> Task<E, [T]> {
 		return self.reduce(Task.of([])) { acc, item in
 			let current = f(item).map { [$0] }
 		
-			let concat = Task<([T], [T]) -> [T]>.of(+)
+			let concat = Task<E, ([T], [T]) -> [T]>.of(+)
 			
 			return ap(concat, acc, current)
 		}
 	}
 }
 
-public func parallel<T>(_ tasks: [Task<T>]) -> Task<[T]> {
+public func parallel<E, T>(_ tasks: [Task<E, T>]) -> Task<E, [T]> {
 	return tasks.traverse({$0})
 }
 
-public func concat<A>(_ first: Task<[A]>, _ second: Task<[A]>) -> Task<[A]> {
+public func concat<E, A>(_ first: Task<E, [A]>, _ second: Task<E, [A]>) -> Task<E, [A]> {
 	return ap(Task.of(+), first, second)
 }
 
-public func parallel<T>(_ tasks: [Task<[T]>]) -> Task<[T]> {
+public func parallel<E, T>(_ tasks: [Task<E, [T]>]) -> Task<E, [T]> {
 	return tasks.reduce(Task.of([])) { acc, item in
 		return concat(acc, item)
 	}
 }
 
-public func sequence<T>(_ tasks: [Task<T>]) -> Task<[T]> {
+public func sequence<E, T>(_ tasks: [Task<E, T>]) -> Task<E, [T]> {
 	return sequence(tasks.map { task in
 		task.map { [$0] }
 	})
 }
 
-public func sequence<T>(_ tasks: [Task<[T]>]) -> Task<[T]> {
+public func sequence<E, T>(_ tasks: [Task<E, [T]>]) -> Task<E, [T]> {
 	guard let first = tasks.first else {
-		return Task<[T]>.of([])
+		return Task<E, [T]>.of([])
 	}
 
 	return first.flatMap { values in
-		let rest: Task<[T]> = sequence(Array(tasks.dropFirst(1)))
+		let rest: Task<E, [T]> = sequence(Array(tasks.dropFirst(1)))
 		return ap(Task.of(+), Task.of(values), rest)
 	}
 }

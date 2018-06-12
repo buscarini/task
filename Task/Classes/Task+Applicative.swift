@@ -8,24 +8,24 @@
 
 import Foundation
 
-public func liftA2<A, B, C>(_ fTask: Task<(A) -> (B) -> C>, _ first: Task<A>, _ second: Task<B>) -> Task<C> {
+public func liftA2<E, A, B, C>(_ fTask: Task<E, (A) -> (B) -> C>, _ first: Task<E, A>, _ second: Task<E, B>) -> Task<E, C> {
 	return ap(ap(fTask, first),second)
 }
 
-public func ap<A, B, C>(_ fTask: Task<(A, B) -> C>, _ first: Task<A>, _ second: Task<B>) -> Task<C> {
+public func ap<E, A, B, C>(_ fTask: Task<E, (A, B) -> C>, _ first: Task<E, A>, _ second: Task<E, B>) -> Task<E, C> {
 	return fTask.flatMap { f in
-		return liftA2(Task<(A) -> (B) -> C>.of(curry(f)), first, second)
+		return liftA2(Task<E, (A) -> (B) -> C>.of(curry(f)), first, second)
 	}
 }
 
-public func ap<A, B>(_ fTask: Task<(A) -> B>, _ other: Task<A>) -> Task<B> {
-	return Task<B>({ (reject: @escaping (Error) -> (), resolve: @escaping (B) -> ()) in
+public func ap<E, A, B>(_ fTask: Task<E, (A) -> B>, _ other: Task<E, A>) -> Task<E, B> {
+	return Task<E, B>({ (reject: @escaping (E) -> (), resolve: @escaping (B) -> ()) in
 		var f: ((A)->B)?
 		var val: A?
 		
 		var rejected = false
 		
-		let guardReject: (Error) -> () = { x in
+		let guardReject: (E) -> () = { x in
 		  if (!rejected) {
 			rejected = true;
 			reject(x)
@@ -63,7 +63,7 @@ public func ap<A, B>(_ fTask: Task<(A) -> B>, _ other: Task<A>) -> Task<B> {
 }
 
 infix operator <*>: AdditionPrecedence
-public func <*><A, B>(fTask: Task<(A) -> B>, first: Task<A>) -> Task<B> {
+public func <*><E, A, B>(fTask: Task<E, (A) -> B>, first: Task<E, A>) -> Task<E, B> {
     return ap(fTask, first)
 }
 
