@@ -10,13 +10,6 @@ import Foundation
 
 extension Task {
 	public func map<U>(_ f: @escaping (T) -> (U)) -> Task<E, U> {
-		return Task<E, U>({ (reject: @escaping (E) -> (), resolve: @escaping (U) -> ()) in
-			return self.fork({ error in
-				reject(error)
-			},
-			{ value in
-				resolve(f(value))
-			})
-		}, cancel: cancel)
+		return self.bimap(id, f)
 	}
 }

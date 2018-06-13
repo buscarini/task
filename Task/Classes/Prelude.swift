@@ -7,6 +7,10 @@
 
 import Foundation
 
+public func id<a>(_ a: a) -> a {
+	return a
+}
+
 public func absurd<A>(_ n: Never) -> A {
 	switch n {}
 }
