@@ -62,7 +62,14 @@ public func ap<E, A, B>(_ fTask: Task<E, (A) -> B>, _ other: Task<E, A>) -> Task
 	})
 }
 
-infix operator <*>: AdditionPrecedence
+precedencegroup ApplyPrecedence {
+    associativity: left
+    higherThan: AssignmentPrecedence
+    lowerThan: TernaryPrecedence
+}
+
+infix operator <*>: ApplyPrecedence
+
 public func <*><E, A, B>(fTask: Task<E, (A) -> B>, first: Task<E, A>) -> Task<E, B> {
     return ap(fTask, first)
 }
