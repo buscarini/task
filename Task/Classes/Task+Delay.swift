@@ -16,3 +16,8 @@ public func delayed<E, A>(_ delay: TimeInterval, _ task: Task<E, A>) -> Task<E, 
 	})
 }
 
+extension Task {
+	public func delay(_ time: TimeInterval) -> Task<E, T> {
+		return delayed(time, self)
+	}
+}
