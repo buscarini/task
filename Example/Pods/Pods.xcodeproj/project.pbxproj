@@ -26,6 +26,7 @@
 		ACB2F05E20D0759B00442342 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F05D20D0759B00442342 /* Async.swift */; };
 		ACB2F06720D103A500442342 /* Task+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F06620D103A500442342 /* Task+Error.swift */; };
 		ACB2F06920D103F900442342 /* Task+BiFunctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F06820D103F900442342 /* Task+BiFunctor.swift */; };
+		ACC7FED220E5052000EEABD9 /* Task+BiMonad.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC7FED120E5052000EEABD9 /* Task+BiMonad.swift */; };
 		AD605DF29EDCB6CDDD6225629D5D84DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		ADF3F5C9FA0B82993FAE1EA0EBD30FDC /* Task+Retry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE04E09F64ABD40055D68BF6B1A0F0 /* Task+Retry.swift */; };
 		D667CB4FEC91FE204852986EC38755D0 /* Collection+Chunks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA613FA5019DF73920C42F7BE327165A /* Collection+Chunks.swift */; };
@@ -94,6 +95,7 @@
 		ACB2F05D20D0759B00442342 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Async.swift; path = Task/Classes/Async.swift; sourceTree = "<group>"; };
 		ACB2F06620D103A500442342 /* Task+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Task+Error.swift"; path = "Task/Classes/Task+Error.swift"; sourceTree = "<group>"; };
 		ACB2F06820D103F900442342 /* Task+BiFunctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Task+BiFunctor.swift"; path = "Task/Classes/Task+BiFunctor.swift"; sourceTree = "<group>"; };
+		ACC7FED120E5052000EEABD9 /* Task+BiMonad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Task+BiMonad.swift"; path = "Task/Classes/Task+BiMonad.swift"; sourceTree = "<group>"; };
 		B4C11A770D7BBC5DCFFC9BB9D5FC5A4A /* Pods-Task_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Task_Example-resources.sh"; sourceTree = "<group>"; };
 		BB240AA93CF4EF6C43AFAC042DA25CA3 /* Task+Applicative.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+Applicative.swift"; path = "Task/Classes/Task+Applicative.swift"; sourceTree = "<group>"; };
 		C07B2B1678FBF7A193FBDBAF4E83D0ED /* Task+Functor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Task+Functor.swift"; path = "Task/Classes/Task+Functor.swift"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				C07B2B1678FBF7A193FBDBAF4E83D0ED /* Task+Functor.swift */,
 				ACB2F06820D103F900442342 /* Task+BiFunctor.swift */,
 				ACB2F06620D103A500442342 /* Task+Error.swift */,
+				ACC7FED120E5052000EEABD9 /* Task+BiMonad.swift */,
 				FEC3C8F9C734ABE3F41186CBA18D5E3E /* Task+Monad.swift */,
 				56DE04E09F64ABD40055D68BF6B1A0F0 /* Task+Retry.swift */,
 				D51CAAB70B3BC9805EF0D1C4CD577D9D /* Pod */,
@@ -408,6 +411,7 @@
 				ACB2F05C20D0729C00442342 /* Task+Never.swift in Sources */,
 				F4EECB5C3D67DC208D68CED860429CC7 /* Task+Alternative.swift in Sources */,
 				0215D2BC3B7ADB508D314E6172C8B1E7 /* Task+Applicative.swift in Sources */,
+				ACC7FED220E5052000EEABD9 /* Task+BiMonad.swift in Sources */,
 				70117562D510684148DFCAC3241F733D /* Task+Delay.swift in Sources */,
 				8508BDD7C34343C0EBDCB4EF889DDADB /* Task+Functor.swift in Sources */,
 				ACB2F06920D103F900442342 /* Task+BiFunctor.swift in Sources */,
