@@ -21,6 +21,7 @@
 		8C4202D328D0309C519F10FFB77C87A6 /* Task-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AB63DA90425D083AAFD260D2B0C42F /* Task-dummy.m */; };
 		8D92EE22B943D1C5643FB8AB2D3F008C /* Pods-Task_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B084CCF1C592A90F577C2322F10F12 /* Pods-Task_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A91E4A0850EAE4B6AFFDF4A68AD62BA6 /* Pods-Task_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046F8EBEC65C60E4FAE18180F074D5B /* Pods-Task_Tests-dummy.m */; };
+		AC5A1BB820E613A00050F615 /* Task+Fold.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A1BB720E613A00050F615 /* Task+Fold.swift */; };
 		ACB2F05A20D0725B00442342 /* Prelude.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F05920D0725B00442342 /* Prelude.swift */; };
 		ACB2F05C20D0729C00442342 /* Task+Never.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F05B20D0729C00442342 /* Task+Never.swift */; };
 		ACB2F05E20D0759B00442342 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F05D20D0759B00442342 /* Async.swift */; };
@@ -90,6 +91,7 @@
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		99282160733CE965EE60580B15692AA1 /* Curry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Curry.swift; path = Task/Classes/Curry.swift; sourceTree = "<group>"; };
 		AAED17225A4CC73E99B30654913A95E8 /* Pods-Task_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Task_Example.modulemap"; sourceTree = "<group>"; };
+		AC5A1BB720E613A00050F615 /* Task+Fold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Task+Fold.swift"; path = "Task/Classes/Task+Fold.swift"; sourceTree = "<group>"; };
 		ACB2F05920D0725B00442342 /* Prelude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prelude.swift; path = Task/Classes/Prelude.swift; sourceTree = "<group>"; };
 		ACB2F05B20D0729C00442342 /* Task+Never.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Task+Never.swift"; path = "Task/Classes/Task+Never.swift"; sourceTree = "<group>"; };
 		ACB2F05D20D0759B00442342 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Async.swift; path = Task/Classes/Async.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				ACB2F06620D103A500442342 /* Task+Error.swift */,
 				ACC7FED120E5052000EEABD9 /* Task+BiMonad.swift */,
 				FEC3C8F9C734ABE3F41186CBA18D5E3E /* Task+Monad.swift */,
+				AC5A1BB720E613A00050F615 /* Task+Fold.swift */,
 				56DE04E09F64ABD40055D68BF6B1A0F0 /* Task+Retry.swift */,
 				D51CAAB70B3BC9805EF0D1C4CD577D9D /* Pod */,
 				E195E5BA981F9CD383780B7AE6803B48 /* Support Files */,
@@ -413,6 +416,7 @@
 				0215D2BC3B7ADB508D314E6172C8B1E7 /* Task+Applicative.swift in Sources */,
 				ACC7FED220E5052000EEABD9 /* Task+BiMonad.swift in Sources */,
 				70117562D510684148DFCAC3241F733D /* Task+Delay.swift in Sources */,
+				AC5A1BB820E613A00050F615 /* Task+Fold.swift in Sources */,
 				8508BDD7C34343C0EBDCB4EF889DDADB /* Task+Functor.swift in Sources */,
 				ACB2F06920D103F900442342 /* Task+BiFunctor.swift in Sources */,
 				E95369D8919D9F60E8078F0A00BC7A78 /* Task+Monad.swift in Sources */,
