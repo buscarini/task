@@ -1,16 +1,23 @@
 PODS:
-  - Task (0.1.0)
+  - NonEmpty (0.1.0)
+  - Task (0.1.0):
+    - NonEmpty (~> 0.1)
 
 DEPENDENCIES:
   - Task (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - NonEmpty
 
 EXTERNAL SOURCES:
   Task:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Task: 1f6d19278b33449de59f953d76d676884fe9c4c7
+  NonEmpty: 3ee5ba14263f011f7ece1718e96abc8385246226
+  Task: 133b86ba2f271871d402eef3e2e23b5bc6f3f9b4
 
 PODFILE CHECKSUM: 3007994ad45811f11571508f84ce12f84c78058d
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

@@ -68,6 +68,14 @@ open class Task<E, T> {
 			return reject(error)
 		})
 	}
-}
 
+	public static func from(_ optional: T?, _ error: E) -> Task {
+		if let value = optional {
+			return Task.of(value)
+		}
+		else {
+			return Task.rejected(error)
+		}
+	}
+}
 

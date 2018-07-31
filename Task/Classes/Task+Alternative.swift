@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import NonEmpty
+
+// TODO: Rename to Alt, as Alternative requires an empty function
 
 public func or<E, A>(_ first: Task<E, A>, _ second: Task<E, A>) -> Task<E, A> {
 	return Task<E, A>({ (reject, resolve) in
@@ -21,3 +24,8 @@ public func <|><E, A>(first: Task<E, A>, second: Task<E, A>) -> Task<E, A> {
     return or(first, second)
 }
 
+public func firstSuccess<E, A>(_ tasks: NonEmptyArray<Task<E, A>>) -> Task<E, A> {
+	return tasks.tail.reduce(tasks.head, { acc, item in
+		return acc <|> item
+	})
+}
