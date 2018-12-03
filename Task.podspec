@@ -1,11 +1,3 @@
-#
-# Be sure to run `pod lib lint Task.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'Task'
   s.version          = '0.1.0'
@@ -23,14 +15,19 @@ Tasks are similar to promises, but they have to be executed explicitly. This fac
 
   s.homepage         = 'https://github.com/buscarini/task'
 
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license = "MIT"
+  
   s.author           = { 'José Manuel Sánchez' => 'buscarini@gmail.com' }
   s.source           = { :git => 'git@github.com:buscarini/task.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = "10.9"
+  s.tvos.deployment_target = "9.0"
+  s.watchos.deployment_target = "2.0"
 
-  s.source_files = 'Task/Classes/**/*'
-  s.swift_version = '4.1'
+  s.source_files  = "Sources", "Sources/**/*.swift"
+  
+  s.swift_version = '4.2'
 
   s.dependency 'NonEmpty', '~> 0.1'
 

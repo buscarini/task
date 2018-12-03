@@ -1,6 +1,0 @@
-framework module NonEmpty {
-  umbrella header "NonEmpty-umbrella.h"
-
-  export *
-  module * { export * }
-}
