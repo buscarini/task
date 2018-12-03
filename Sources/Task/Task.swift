@@ -42,13 +42,15 @@ open class Task<E, T> {
 		self._cancel = cancel
 	}
 	
-	public func fork(_ reject: @escaping ErrorCallback, _ resolve: @escaping ResultCallback) {
+	public func fork(_ reject: @escaping ErrorCallback, _ resolve: @escaping ResultCallback, onComplete: (() -> Void)? = nil) {
 		self._fork({ error in
 			guard !self.cancelled else { return }
 			reject(error)
+			onComplete?()
 		}, { result in
 			guard !self.cancelled else { return }
 			resolve(result)
+			onComplete?()
 		})
 	}
 	

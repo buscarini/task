@@ -1,8 +1,6 @@
 os:
   - osx
-language: generic
-sudo: required
-dist: trusty
+language: swift
 osx_image: xcode10.1
 install: swift package update
 script:

@@ -1,5 +1,4 @@
 
-import UIKit
 import XCTest
 import Task
 

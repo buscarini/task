@@ -1,5 +1,4 @@
 
-import UIKit
 import XCTest
 import Task
 
@@ -33,6 +32,32 @@ class Tests: XCTestCase {
 			},
 			{ (_: Int) in
 				XCTFail()
+			})
+		
+		self.waitForExpectations(timeout: 1.0, handler: nil)
+	}
+	
+	func testCompletionOnSuccess() {
+		let expectation = self.expectation(description: "task completed")
+		
+		Task<Error, Int>.of(22)
+			.fork({ error in },
+				  { (_: Int) in },
+				  onComplete: {
+					expectation.fulfill()
+				}
+			)
+		
+		self.waitForExpectations(timeout: 1.0, handler: nil)
+	}
+	
+	func testCompletionOnFail() {
+		let expectation = self.expectation(description: "task completed")
+		
+		Task.rejected(exampleError())
+			.fork({ error in },
+			{ (_: Int) in }, onComplete: {
+				expectation.fulfill()
 			})
 		
 		self.waitForExpectations(timeout: 1.0, handler: nil)
