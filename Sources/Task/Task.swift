@@ -59,15 +59,15 @@ open class Task<E, T> {
 		self._cancel?()
 	}
 	
-	public static func of(_ value: T) -> Task {
+	public static func of(_ value: @autoclosure @escaping () -> T) -> Task {
 		return Task({ (_, resolve) in
-			return resolve(value)
+			return resolve(value())
 		})
 	}
 	
-	public static func rejected(_ error: E) -> Task {
+	public static func rejected(_ error: @autoclosure @escaping () -> E) -> Task {
 		return Task({ (reject, _) in
-			return reject(error)
+			return reject(error())
 		})
 	}
 

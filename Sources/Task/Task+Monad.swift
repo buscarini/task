@@ -10,6 +10,6 @@ import Foundation
 
 extension Task {
 	public func flatMap<U>(_ f: @escaping (T) -> (Task<E, U>)) -> Task<E, U> {
-		return self.biFlatMap(Task<E, U>.rejected, f)
+		return self.biFlatMap({ Task<E, U>.rejected($0) }, f)
 	}
 }

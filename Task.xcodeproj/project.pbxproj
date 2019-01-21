@@ -660,7 +660,7 @@
             "OBJ_58"
          );
          name = "NonEmpty";
-         path = ".build/checkouts/swift-nonempty.git-367401316997277749/Sources/NonEmpty";
+         path = ".build/checkouts/swift-nonempty.git-4637699114744936164/Sources/NonEmpty";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_44" = {
@@ -755,7 +755,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/josanchez/prog/task/.build/checkouts/swift-nonempty.git-367401316997277749/Package.swift";
+         path = "/Users/josanchez/prog/task/.build/checkouts/swift-nonempty.git-4637699114744936164/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_6" = {

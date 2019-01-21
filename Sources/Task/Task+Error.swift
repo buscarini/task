@@ -13,13 +13,27 @@ extension Task {
 	}
 	
 	public func flatMapError<F>(_ f: @escaping (E) -> (Task<F, T>)) -> Task<F, T> {
-		return self.biFlatMap(f, Task<F, T>.of)
+		return self.biFlatMap(f, { Task<F, T>.of($0) })
 	}
 	
+	@available(*, deprecated, renamed: "init(catching:)")
 	public static func `try`(_ f: @escaping () throws -> T) -> Task<Error, T> {
 		return Task<Error, T>({ reject, resolve in
 			do {
 				resolve(try f())
+			}
+			catch let error {
+				reject(error)
+			}
+		})
+	}
+}
+
+public extension Task where E == Error {
+	public convenience init (catching: @escaping () throws -> T) {
+		self.init({ (reject, resolve) in
+			do {
+				resolve(try catching())
 			}
 			catch let error {
 				reject(error)
