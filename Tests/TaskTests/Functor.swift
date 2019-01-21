@@ -36,7 +36,7 @@ class Functor: XCTestCase {
 	func testMapFail() {
 		let expectation = self.expectation(description: "task not mapped")
 		
-		Task<Error, String>.rejected(exampleError())
+		Task<Error, String>.rejected(self.exampleError())
 			.map({ string in
 				return string.count
 			})

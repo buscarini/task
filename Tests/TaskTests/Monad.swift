@@ -33,7 +33,7 @@ class Monad: XCTestCase {
 	func testFlatMapFail() {
 		let expectation = self.expectation(description: "task not chained")
 		
-		Task<Error, String>.rejected(exampleError())
+		Task<Error, String>.rejected(self.exampleError())
 			.flatMap({ string in
 				return Task.of(string.count)
 			})

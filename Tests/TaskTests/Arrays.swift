@@ -19,7 +19,7 @@ class Arrays: XCTestCase {
 	
 		let expectation = self.expectation(description: "task succeeded")
 	
-		[1, 2, 3].traverse(Task<Never, Int>.of)
+		[1, 2, 3].traverse { Task<Never, Int>.of($0) }
 			.fork({ error in
 				XCTFail()
 			},

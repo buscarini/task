@@ -26,7 +26,7 @@ class Tests: XCTestCase {
     func testFailure() {
 		let expectation = self.expectation(description: "task failed")
 	
-		Task.rejected(exampleError())
+		Task.rejected(self.exampleError())
 			.fork({ error in
 				expectation.fulfill()
 			},
@@ -54,7 +54,7 @@ class Tests: XCTestCase {
 	func testCompletionOnFail() {
 		let expectation = self.expectation(description: "task completed")
 		
-		Task.rejected(exampleError())
+		Task.rejected(self.exampleError())
 			.fork({ error in },
 			{ (_: Int) in }, onComplete: {
 				expectation.fulfill()

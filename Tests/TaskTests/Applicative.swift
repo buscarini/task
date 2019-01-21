@@ -34,7 +34,7 @@ class Applicative: XCTestCase {
 	func testApFailure() {
 		let expectation = self.expectation(description: "task ap failed")
 		
-		ap(Task<Error, (Int) -> Int>.rejected(exampleError()), Task<Error, Int>.of(1))
+		ap(Task<Error, (Int) -> Int>.rejected(self.exampleError()), Task<Error, Int>.of(1))
 			.fork({ error in
 				expectation.fulfill()
 			},
@@ -66,7 +66,7 @@ class Applicative: XCTestCase {
 	func testAp2ParamsFailure() {
 		let expectation = self.expectation(description: "task ap with 2 params f failed")
 		
-		ap(Task<Error, (Int, Int) -> Int>.rejected(exampleError()), Task.of(1), Task.of(3))
+		ap(Task<Error, (Int, Int) -> Int>.rejected(self.exampleError()), Task.of(1), Task.of(3))
 			.fork({ error in
 				expectation.fulfill()
 			},
@@ -81,7 +81,7 @@ class Applicative: XCTestCase {
 	func testAp2ParamsFailure1() {
 		let expectation = self.expectation(description: "task ap with 2 params first failed")
 		
-		ap(Task.of(+), Task.rejected(exampleError()), Task.of(3))
+		ap(Task.of(+), Task.rejected(self.exampleError()), Task.of(3))
 			.fork({ error in
 				expectation.fulfill()
 			},
@@ -96,7 +96,7 @@ class Applicative: XCTestCase {
 	func testAp2ParamsFailure2() {
 		let expectation = self.expectation(description: "task ap with 2 params second failed")
 		
-		ap(Task.of(+), Task.of(1), Task.rejected(exampleError()))
+		ap(Task.of(+), Task.of(1), Task.rejected(self.exampleError()))
 			.fork({ error in
 				expectation.fulfill()
 			},

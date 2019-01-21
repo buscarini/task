@@ -10,7 +10,7 @@ class Alternative: XCTestCase {
     func testAlternative1() {
 		let expectation = self.expectation(description: "task alternative first failed")
 	
-		(or(Task<Error, Int>.rejected(exampleError()), Task.of(22)))
+		(or(Task<Error, Int>.rejected(self.exampleError()), Task.of(22)))
 			.fork({ error in
 				XCTFail()
 			},
@@ -25,7 +25,7 @@ class Alternative: XCTestCase {
 	func testAlternative2() {
 		let expectation = self.expectation(description: "task alternative second failed")
 	
-		(or(Task.of(22), Task<Error, Int>.rejected(exampleError())))
+		(or(Task.of(22), Task<Error, Int>.rejected(self.exampleError())))
 			.fork({ error in
 				XCTFail()
 			},
@@ -40,7 +40,7 @@ class Alternative: XCTestCase {
 	func testAlternativeFail() {
 		let expectation = self.expectation(description: "task all failed")
 	
-		(or(Task<Error, Int>.rejected(exampleError()), Task<Error, Int>.rejected(exampleError())))
+		(or(Task<Error, Int>.rejected(self.exampleError()), Task<Error, Int>.rejected(self.exampleError())))
 			.fork({ error in
 				expectation.fulfill()
 			},
@@ -54,7 +54,7 @@ class Alternative: XCTestCase {
 	func testAlternativeOp() {
 		let expectation = self.expectation(description: "task alternative with operator")
 	
-		(Task<Error, Int>.rejected(exampleError()) <|> Task.of(22))
+		(Task<Error, Int>.rejected(self.exampleError()) <|> Task.of(22))
 			.fork({ error in
 				XCTFail()
 			},
@@ -69,7 +69,7 @@ class Alternative: XCTestCase {
 	func testAlternativeOp3() {
 		let expectation = self.expectation(description: "task alternative with operator 3 arguments")
 	
-		(Task<Error, Int>.rejected(exampleError()) <|> Task<Error, Int>.rejected(exampleError()) <|> Task.of(22))
+		(Task<Error, Int>.rejected(self.exampleError()) <|> Task<Error, Int>.rejected(self.exampleError()) <|> Task.of(22))
 			.fork({ error in
 				XCTFail()
 			},
