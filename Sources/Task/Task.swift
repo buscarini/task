@@ -79,5 +79,13 @@ open class Task<E, T> {
 			return Task.rejected(error)
 		}
 	}
+	
+	public func optional() -> Task<Never, T?> {
+		return self
+			.map { .some($0) }
+			.flatMapError { _ in
+				return Task<Never, T?>.of(nil)
+			}
+	}
 }
 
