@@ -24,7 +24,7 @@ Check the tests for usage examples.
 
 ## Author
 
-JM. Sánchez, josema@treenovum.es
+José Manuel Sánchez, buscarini@gmail.com
 
 ## License
 
