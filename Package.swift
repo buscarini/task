@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 
 import PackageDescription
 
@@ -8,11 +8,10 @@ let package = Package(
     .library(name: "Task", targets: ["Task"]),
     ],
 	dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-nonempty.git", from: "0.1.2"),
+        .package(url: "https://github.com/pointfreeco/swift-nonempty.git", from: "0.2.0"),
     ],
   targets: [
     .target(name: "Task", dependencies: ["NonEmpty"]),
     .testTarget(name: "TaskTests", dependencies: ["Task", "NonEmpty"]),
-    ],
-   swiftLanguageVersions: [.v4_2]
+    ]
 )

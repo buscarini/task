@@ -30,7 +30,7 @@ extension Task {
 }
 
 public extension Task where E == Error {
-	public convenience init (catching: @escaping () throws -> T) {
+	convenience init (catching: @escaping () throws -> T) {
 		self.init({ (reject, resolve) in
 			do {
 				resolve(try catching())
