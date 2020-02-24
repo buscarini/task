@@ -27,7 +27,7 @@ Tasks are similar to promises, but they have to be executed explicitly. This fac
 
   s.source_files  = "Sources", "Sources/**/*.swift"
   
-  s.swift_version = '5.0'
+  s.swift_version = '5.1'
 
   s.dependency 'NonEmpty', '~> 0.2'
 
