@@ -59,18 +59,21 @@ open class Task<E, T> {
 		self._cancel?()
 	}
 	
+	@inlinable
 	public static func of(_ value: @autoclosure @escaping () -> T) -> Task {
-		return Task({ (_, resolve) in
-			return resolve(value())
+		Task({ (_, resolve) in
+			resolve(value())
 		})
 	}
 	
+	@inlinable
 	public static func rejected(_ error: @autoclosure @escaping () -> E) -> Task {
-		return Task({ (reject, _) in
-			return reject(error())
+		Task({ (reject, _) in
+			reject(error())
 		})
 	}
 	
+	@inlinable
 	public static func from(_ optional: T?, default value: T) -> Task {
 		if let value = optional {
 			return Task.of(value)
@@ -80,6 +83,7 @@ open class Task<E, T> {
 		}
 	}
 
+	@inlinable
 	public static func from(_ optional: T?, _ error: E) -> Task {
 		if let value = optional {
 			return Task.of(value)
@@ -89,11 +93,12 @@ open class Task<E, T> {
 		}
 	}
 	
+	@inlinable
 	public func optional() -> Task<Never, T?> {
-		return self
+		self
 			.map { .some($0) }
 			.flatMapError { _ in
-				return Task<Never, T?>.of(nil)
+				Task<Never, T?>.of(nil)
 			}
 	}
 }

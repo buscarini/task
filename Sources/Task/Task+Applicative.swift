@@ -8,18 +8,21 @@
 
 import Foundation
 
+@inlinable
 public func liftA2<E, A, B, C>(_ fTask: Task<E, (A) -> (B) -> C>, _ first: Task<E, A>, _ second: Task<E, B>) -> Task<E, C> {
-	return ap(ap(fTask, first),second)
+	ap(ap(fTask, first),second)
 }
 
+@inlinable
 public func ap<E, A, B, C>(_ fTask: Task<E, (A, B) -> C>, _ first: Task<E, A>, _ second: Task<E, B>) -> Task<E, C> {
-	return fTask.flatMap { f in
-		return liftA2(Task<E, (A) -> (B) -> C>.of(curry(f)), first, second)
+	fTask.flatMap { f in
+		liftA2(Task<E, (A) -> (B) -> C>.of(curry(f)), first, second)
 	}
 }
 
+@inlinable
 public func ap<E, A, B>(_ fTask: Task<E, (A) -> B>, _ other: Task<E, A>) -> Task<E, B> {
-	return Task<E, B>({ (reject: @escaping (E) -> (), resolve: @escaping (B) -> ()) in
+	Task<E, B>({ (reject: @escaping (E) -> (), resolve: @escaping (B) -> ()) in
 		var f: ((A)->B)?
 		var val: A?
 		
@@ -70,7 +73,8 @@ precedencegroup ApplyPrecedence {
 
 infix operator <*>: ApplyPrecedence
 
+@inlinable
 public func <*><E, A, B>(fTask: Task<E, (A) -> B>, first: Task<E, A>) -> Task<E, B> {
-    return ap(fTask, first)
+    ap(fTask, first)
 }
 
