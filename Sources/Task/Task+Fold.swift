@@ -8,9 +8,10 @@
 import Foundation
 
 extension Task {
+	@inlinable
 	public func fold<B>(_ f: @escaping (E) -> B, _ g: @escaping (T) -> B) -> Task<Never, B> {
-		return Task<Never, B>({ reject, resolve in
-			return self.fork({ error in
+		Task<Never, B>({ reject, resolve in
+			self.fork({ error in
 				resolve(f(error))
 			},
 			{ value in

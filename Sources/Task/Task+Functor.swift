@@ -9,7 +9,9 @@
 import Foundation
 
 extension Task {
+	
+	@inlinable
 	public func map<U>(_ f: @escaping (T) -> (U)) -> Task<E, U> {
-		return self.bimap(id, f)
+		self.bimap(id, f)
 	}
 }

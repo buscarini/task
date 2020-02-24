@@ -8,12 +8,14 @@
 import Foundation
 
 extension Task {
+	@inlinable
 	public func mapError<F>(_ f: @escaping (E) -> (F)) -> Task<F, T> {
-		return self.bimap(f, id)
+		self.bimap(f, id)
 	}
 	
+	@inlinable
 	public func flatMapError<F>(_ f: @escaping (E) -> (Task<F, T>)) -> Task<F, T> {
-		return self.biFlatMap(f, { Task<F, T>.of($0) })
+		self.biFlatMap(f, { Task<F, T>.of($0) })
 	}
 	
 	@available(*, deprecated, renamed: "init(catching:)")
@@ -30,6 +32,7 @@ extension Task {
 }
 
 public extension Task where E == Error {
+	@inlinable
 	convenience init (catching: @escaping () throws -> T) {
 		self.init({ (reject, resolve) in
 			do {

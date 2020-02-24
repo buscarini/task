@@ -8,9 +8,10 @@
 import Foundation
 
 extension Task {
+	@inlinable
 	public func bimap<F, U>(_ f: @escaping (E) -> F, _ g: @escaping (T) -> U) -> Task<F, U> {
-		return Task<F, U>({ reject, resolve in
-			return self.fork({ error in
+		Task<F, U>({ reject, resolve in
+			self.fork({ error in
 				reject(f(error))
 			},
 			{ value in

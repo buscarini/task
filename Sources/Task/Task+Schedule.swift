@@ -8,16 +8,18 @@
 import Foundation
 
 extension Task {
+	@inlinable
 	public func scheduleOn(_ queue: DispatchQueue) -> Task<E, T> {
-		return Task({ (reject, resolve) in
+		Task({ (reject, resolve) in
 			queue.async {
 				self.fork(reject, resolve)
 			}
 		})
 	}
 	
+	@inlinable
 	public func forkOn(_ queue: DispatchQueue) -> Task<E, T> {
-		return Task({ (reject, resolve) in
+		Task({ (reject, resolve) in
 			self.fork({ error in
 				queue.async {
 					reject(error)
