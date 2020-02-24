@@ -8,6 +8,8 @@
 import Foundation
 
 extension Task where E == Never {
+	
+	@inlinable
 	public func run(_ resolve: @escaping ResultCallback) {
 		self.fork(absurd, resolve)
 	}

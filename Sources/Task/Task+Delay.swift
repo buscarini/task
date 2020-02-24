@@ -8,8 +8,9 @@
 
 import Foundation
 
+@inlinable
 public func delayed<E, A>(_ delay: TimeInterval, _ task: Task<E, A>) -> Task<E, A> {
-	return Task<E, A>({ (reject, resolve) in
+	Task<E, A>({ (reject, resolve) in
 		DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
 			task.fork(reject, resolve)
 		}
@@ -17,7 +18,8 @@ public func delayed<E, A>(_ delay: TimeInterval, _ task: Task<E, A>) -> Task<E, 
 }
 
 extension Task {
+	@inlinable
 	public func delay(_ time: TimeInterval) -> Task<E, T> {
-		return delayed(time, self)
+		delayed(time, self)
 	}
 }

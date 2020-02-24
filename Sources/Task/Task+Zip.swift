@@ -7,43 +7,48 @@
 
 import Foundation
 
+@inlinable
 public func zip<E, A, B>(_ left: Task<E, A>, _ right: Task<E, B>) -> Task<E, (A, B)> {
-	return liftA2(Task.of({ a in
+	liftA2(Task.of({ a in
 		{ b in
 			(a, b)
 		}
 	}), left, right)
 }
 
+@inlinable
 public func zip<E, A, B, C>(with f: @escaping (A, B) -> C)
 	-> (Task<E, A>, Task<E, B>)
 	-> Task<E, C> {
-	return { left, right in
-		return zip(left, right).map(f)
+	{ left, right in
+		zip(left, right).map(f)
 	}
 }
 
+@inlinable
 public func zip2<E, A, B>(_ left: Task<E, A>, _ right: Task<E, B>) -> Task<E, (A, B)> {
-	return zip(left, right)
+	zip(left, right)
 }
 
+@inlinable
 public func zip2<E, A, B, C>(with f: @escaping (A, B) -> C)
 	-> (Task<E, A>, Task<E, B>)
 	-> Task<E, C> {
-	return zip(with: f)
+	zip(with: f)
 }
 
+@inlinable
 public func zip3<E, A, B, C>(
   _ xs: Task<E, A>, _ ys: Task<E, B>, _ zs: Task<E, C>
   ) -> Task<E, (A, B, C)> {
-
-  return zip2(xs, zip2(ys, zs)) // Task<E, (A, (B, C))>
+  zip2(xs, zip2(ys, zs)) // Task<E, (A, (B, C))>
     .map { a, bc in (a, bc.0, bc.1) }
 }
 
+@inlinable
 func zip3<E, A, B, C, D>(
   with f: @escaping (A, B, C) -> D
   ) -> (Task<E, A>, Task<E, B>, Task<E, C>) -> Task<E, D> {
-  return { xs, ys, zs in zip3(xs, ys, zs).map(f) }
+  { xs, ys, zs in zip3(xs, ys, zs).map(f) }
 }
 

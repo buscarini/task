@@ -8,9 +8,10 @@
 import Foundation
 
 extension Task {
+	@inlinable
 	public func biFlatMap<F, U>(_ f: @escaping (E) -> Task<F, U>, _ g: @escaping (T) -> Task<F, U>) -> Task<F, U> {
-		return Task<F, U>({ (reject: @escaping (F) -> (), resolve: @escaping (U) -> ()) in
-			return self.fork({ error in
+		Task<F, U>({ (reject: @escaping (F) -> (), resolve: @escaping (U) -> ()) in
+			self.fork({ error in
 				f(error).fork(reject, resolve)
 			},
 			{ value in
