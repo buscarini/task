@@ -67,7 +67,7 @@ class ConcurrencyTests: XCTestCase {
 	func testForEach() {
 		let finish = expectation(description: "finish")
 		
-		let values = Array(1...50_000)
+		let values = Array(1...10_000)
 
 		
 		let task = sequence(values.map {
@@ -97,7 +97,7 @@ class ConcurrencyTests: XCTestCase {
 			finish.fulfill()
 		})
 		
-		wait(for: [finish], timeout: 1)
+		wait(for: [finish], timeout: 10)
 	}
 	
 	func testForEachGlobalQueue() {
@@ -115,7 +115,7 @@ class ConcurrencyTests: XCTestCase {
 			finish.fulfill()
 		})
 		
-		wait(for: [finish], timeout: 1)
+		wait(for: [finish], timeout: 10)
 	}
 	
 	func testForEachGlobalQueueMultiple() {
@@ -132,7 +132,7 @@ class ConcurrencyTests: XCTestCase {
 			finish.fulfill()
 		})
 		
-		wait(for: [finish], timeout: 1)
+		wait(for: [finish], timeout: 10)
 	}
 	
 	func testCancel() {
