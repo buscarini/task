@@ -61,7 +61,7 @@ class ConcurrencyTests: XCTestCase {
 				finish.fulfill()
 			})
 		
-		wait(for: [finish], timeout: 30)
+		wait(for: [finish], timeout: 120)
 	}
 	
 	func testForEach() {
@@ -244,7 +244,7 @@ class ConcurrencyTests: XCTestCase {
 				finish.fulfill()
 			})
 			
-			waitForExpectations(timeout: 60, handler: { _ in
+			waitForExpectations(timeout: 120, handler: { _ in
 				self.stopMeasuring()
 			})
 		}
@@ -253,7 +253,7 @@ class ConcurrencyTests: XCTestCase {
 	
 	func testReduceRegularPerformance() {
 		measureMetrics([.wallClockTime], automaticallyStartMeasuring: true) {
-			let values = Array(1...100_000)
+			let values = Array(1...10_000)
 			_ = values.reduce(0, { res, value in
 				res + value
 			})
