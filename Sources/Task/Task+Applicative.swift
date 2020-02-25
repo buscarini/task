@@ -15,9 +15,11 @@ public func liftA2<E, A, B, C>(_ fTask: Task<E, (A) -> (B) -> C>, _ first: Task<
 
 @inlinable
 public func ap<E, A, B, C>(_ fTask: Task<E, (A, B) -> C>, _ first: Task<E, A>, _ second: Task<E, B>) -> Task<E, C> {
-	fTask.flatMap { f in
-		liftA2(Task<E, (A) -> (B) -> C>.of(curry(f)), first, second)
-	}
+	ap(ap(fTask.map(curry), first), second)
+	
+//	fTask.flatMap { f in
+//		liftA2(Task<E, (A) -> (B) -> C>.of(curry(f)), first, second)
+//	}
 }
 
 let apQueue = DispatchQueue.init(label: "ap")
