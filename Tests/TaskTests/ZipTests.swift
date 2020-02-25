@@ -34,13 +34,13 @@ class ConcurrencyTests: XCTestCase {
 			finish.fulfill()
 		})
 		
-		wait(for: [finish], timeout: 1)
+		wait(for: [finish], timeout: 10)
 	}
 	
 	func testZipStackOverflow() {
 		let finish = expectation(description: "finish")
 		
-		let values = Array(1...10000)
+		let values = Array(1...10_000)
 		
 		let left = sequence(values.map {
 			Async<Int>.of($0).scheduleOn(.global()).forkOn(.global())
@@ -61,7 +61,7 @@ class ConcurrencyTests: XCTestCase {
 				finish.fulfill()
 			})
 		
-		wait(for: [finish], timeout: 10)
+		wait(for: [finish], timeout: 30)
 	}
 	
 	func testForEach() {
@@ -244,7 +244,7 @@ class ConcurrencyTests: XCTestCase {
 				finish.fulfill()
 			})
 			
-			waitForExpectations(timeout: 20, handler: { _ in
+			waitForExpectations(timeout: 60, handler: { _ in
 				self.stopMeasuring()
 			})
 		}
