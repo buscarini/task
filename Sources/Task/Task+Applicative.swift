@@ -20,48 +20,67 @@ public func ap<E, A, B, C>(_ fTask: Task<E, (A, B) -> C>, _ first: Task<E, A>, _
 	}
 }
 
-@inlinable
-public func ap<E, A, B>(_ fTask: Task<E, (A) -> B>, _ other: Task<E, A>) -> Task<E, B> {
-	Task<E, B>({ (reject: @escaping (E) -> (), resolve: @escaping (B) -> ()) in
-		var f: ((A)->B)?
-		var val: A?
+let apQueue = DispatchQueue.init(label: "ap")
+
+public func ap<E, A, B>(_ left: Task<E, (A) -> B>, _ right: Task<E, A>) -> Task<E, B> {
+	
+	let l = left
+	let r = right
+	
+	var cancelled = false
+	
+	return Task<E, B>({ (reject: @escaping (E) -> (), resolve: @escaping (B) -> ()) in
+	
+		let resolved = SyncValue<Never, Bool>()
+		let leftVal = SyncValue<E, (A) -> B>()
+		let rightVal = SyncValue<E, A>()
 		
-		var rejected = false
-		
-		let guardReject: (E) -> () = { x in
-		  if (!rejected) {
-			rejected = true;
-			reject(x)
-		  }
+		let checkContinue = {
+			apQueue.async {
+				guard resolved.notLoaded, cancelled == false, l.cancelled == false, r.cancelled == false else { return }
+				
+				switch (leftVal.result, rightVal.result) {
+				case let (.loaded(.right(ab)), .loaded(.right(a))):
+					resolved.result = .loaded(.right(true))
+					resolve(ab(a))
+				case let (.loaded(.left(e)), .loaded):
+					resolved.result = .loaded(.right(false))
+					reject(e)
+				case let (.loaded, .loaded(.left(e))):
+					resolved.result = .loaded(.right(false))
+					reject(e)
+					
+				default:
+					return
+				}
+			}
 		}
 		
-		let tryResolve = {
-			guard let f = f, let val = val else { return }
-			resolve(f(val))
-		}
-		
-		fTask.fork(guardReject, { loadedF in
-			guard !rejected else {
-				return
-			}
+		l.fork({ error in
+			leftVal.result = .loaded(.left(error))
 			
-			f = loadedF
+			checkContinue()
 			
-			tryResolve()
+		}, { loadedF in
+			leftVal.result = .loaded(.right(loadedF))
+			
+			checkContinue()
+		})
+	
+		r.fork({ error in
+			rightVal.result = .loaded(.left(error))
+			
+			checkContinue()
+		}, { loadedVal in
+			rightVal.result = .loaded(.right(loadedVal))
+			
+			checkContinue()
 		})
 		
-		other.fork(guardReject, { loadedVal in
-			guard !rejected else {
-				return
-			}
-			
-			val = loadedVal
-			
-			tryResolve()
-		})
 	}, cancel: {
-		fTask.cancel()
-		other.cancel()
+		cancelled = true
+		l.cancel()
+		r.cancel()
 	})
 }
 

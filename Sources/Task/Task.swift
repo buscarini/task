@@ -20,7 +20,7 @@ open class Task<E, T> {
 	
 	private var _cancelled = false
 	private let cancelSyncQueue = DispatchQueue(label: "task_cancel")
-	private var cancelled: Bool {
+	public private(set) var cancelled: Bool {
 		get {
 			var result = false
 			
