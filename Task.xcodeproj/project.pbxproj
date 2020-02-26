@@ -24,6 +24,13 @@
 		ACA30185240531F300AA8AD3 /* SyncValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA30184240531F200AA8AD3 /* SyncValue.swift */; };
 		ACA301872405325900AA8AD3 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA301862405325900AA8AD3 /* Either.swift */; };
 		ACA3018A2405378200AA8AD3 /* ZipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA301882405371F00AA8AD3 /* ZipTests.swift */; };
+		ACFF75792406632400267604 /* Either+Alt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF75732406632300267604 /* Either+Alt.swift */; };
+		ACFF757A2406632400267604 /* Either+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF75722406632300267604 /* Either+Codable.swift */; };
+		ACFF757B2406632400267604 /* Either+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF75782406632400267604 /* Either+Error.swift */; };
+		ACFF757D2406632400267604 /* Either+Applicative.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF75712406632300267604 /* Either+Applicative.swift */; };
+		ACFF757E2406632400267604 /* Either+Traversable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF75742406632400267604 /* Either+Traversable.swift */; };
+		ACFF757F2406632400267604 /* Either+Monad.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF75752406632400267604 /* Either+Monad.swift */; };
+		ACFF75802406632400267604 /* Either+Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFF75762406632400267604 /* Either+Zip.swift */; };
 		OBJ_100 /* Task+Applicative.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Task+Applicative.swift */; };
 		OBJ_101 /* Task+BiFunctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Task+BiFunctor.swift */; };
 		OBJ_102 /* Task+BiMonad.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Task+BiMonad.swift */; };
@@ -107,6 +114,13 @@
 		ACA30184240531F200AA8AD3 /* SyncValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncValue.swift; sourceTree = "<group>"; };
 		ACA301862405325900AA8AD3 /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		ACA301882405371F00AA8AD3 /* ZipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipTests.swift; sourceTree = "<group>"; };
+		ACFF75712406632300267604 /* Either+Applicative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+Applicative.swift"; sourceTree = "<group>"; };
+		ACFF75722406632300267604 /* Either+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+Codable.swift"; sourceTree = "<group>"; };
+		ACFF75732406632300267604 /* Either+Alt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+Alt.swift"; sourceTree = "<group>"; };
+		ACFF75742406632400267604 /* Either+Traversable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+Traversable.swift"; sourceTree = "<group>"; };
+		ACFF75752406632400267604 /* Either+Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+Monad.swift"; sourceTree = "<group>"; };
+		ACFF75762406632400267604 /* Either+Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+Zip.swift"; sourceTree = "<group>"; };
+		ACFF75782406632400267604 /* Either+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+Error.swift"; sourceTree = "<group>"; };
 		"NonEmpty::NonEmpty::Product" /* NonEmpty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NonEmpty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Collection+Chunks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Chunks.swift"; sourceTree = "<group>"; };
@@ -252,7 +266,7 @@
 			path = ".build/checkouts/swift-nonempty.git-4637699114744936164/Sources/NonEmpty";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -266,7 +280,6 @@
 				OBJ_63 /* README.md */,
 				OBJ_64 /* Task.podspec */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_56 /* Products */ = {
@@ -292,6 +305,13 @@
 			children = (
 				ACA30184240531F200AA8AD3 /* SyncValue.swift */,
 				ACA301862405325900AA8AD3 /* Either.swift */,
+				ACFF75732406632300267604 /* Either+Alt.swift */,
+				ACFF75712406632300267604 /* Either+Applicative.swift */,
+				ACFF75722406632300267604 /* Either+Codable.swift */,
+				ACFF75782406632400267604 /* Either+Error.swift */,
+				ACFF75752406632400267604 /* Either+Monad.swift */,
+				ACFF75742406632400267604 /* Either+Traversable.swift */,
+				ACFF75762406632400267604 /* Either+Zip.swift */,
 				OBJ_9 /* Array+Traverse.swift */,
 				OBJ_10 /* Async.swift */,
 				OBJ_11 /* Collection+Chunks.swift */,
@@ -415,7 +435,7 @@
 				English,
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_56 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -490,7 +510,10 @@
 			files = (
 				OBJ_94 /* Array+Traverse.swift in Sources */,
 				OBJ_95 /* Async.swift in Sources */,
+				ACFF75792406632400267604 /* Either+Alt.swift in Sources */,
 				OBJ_96 /* Collection+Chunks.swift in Sources */,
+				ACFF75802406632400267604 /* Either+Zip.swift in Sources */,
+				ACFF757F2406632400267604 /* Either+Monad.swift in Sources */,
 				OBJ_97 /* Curry.swift in Sources */,
 				OBJ_98 /* Prelude.swift in Sources */,
 				OBJ_99 /* Task+Alternative.swift in Sources */,
@@ -498,16 +521,20 @@
 				ACA301872405325900AA8AD3 /* Either.swift in Sources */,
 				OBJ_101 /* Task+BiFunctor.swift in Sources */,
 				ACA30185240531F300AA8AD3 /* SyncValue.swift in Sources */,
+				ACFF757B2406632400267604 /* Either+Error.swift in Sources */,
 				OBJ_102 /* Task+BiMonad.swift in Sources */,
 				OBJ_103 /* Task+Delay.swift in Sources */,
 				OBJ_104 /* Task+Error.swift in Sources */,
 				OBJ_105 /* Task+Fold.swift in Sources */,
 				OBJ_106 /* Task+Functor.swift in Sources */,
+				ACFF757D2406632400267604 /* Either+Applicative.swift in Sources */,
 				OBJ_107 /* Task+Monad.swift in Sources */,
 				OBJ_108 /* Task+Never.swift in Sources */,
+				ACFF757E2406632400267604 /* Either+Traversable.swift in Sources */,
 				OBJ_109 /* Task+Retry.swift in Sources */,
 				OBJ_110 /* Task+Schedule.swift in Sources */,
 				OBJ_111 /* Task+Zip.swift in Sources */,
+				ACFF757A2406632400267604 /* Either+Codable.swift in Sources */,
 				OBJ_112 /* Task.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
