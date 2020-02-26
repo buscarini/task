@@ -31,4 +31,15 @@ extension Task {
 			})
 		})
 	}
+	
+	@inlinable
+	public func forkMain(
+		_ reject: @escaping ErrorCallback,
+		_ resolve: @escaping ResultCallback,
+		onComplete: (() -> Void)? = nil
+	) {
+		self
+			.forkOn(.main)
+			.fork(reject, resolve, onComplete: onComplete)
+	}
 }
