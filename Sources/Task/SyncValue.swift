@@ -15,7 +15,7 @@ public class SyncValue<E, A> {
 		case loaded(Either<E, A>)
 	}
 	
-	private let barrier = DispatchQueue(label: "es.josesanchez.barrier", attributes: .concurrent)
+	private let barrier = DispatchQueue(label: "es.task.barrier", attributes: .concurrent)
 	private var _result: State<E, A> = .notLoaded
 	
 	public var result: State<E, A> {
