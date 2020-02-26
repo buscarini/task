@@ -40,13 +40,19 @@ public func ap<E, A, B>(_ left: Task<E, (A) -> B>, _ right: Task<E, A>) -> Task<
 				switch (leftVal.result, rightVal.result) {
 				case let (.loaded(.right(ab)), .loaded(.right(a))):
 					resolved.result = .loaded(.right(true))
-					resolve(ab(a))
+					DispatchQueue.main.async {
+						resolve(ab(a))
+					}
 				case let (.loaded(.left(e)), .loaded):
 					resolved.result = .loaded(.right(false))
-					reject(e)
+					DispatchQueue.main.async {
+						reject(e)
+					}
 				case let (.loaded, .loaded(.left(e))):
 					resolved.result = .loaded(.right(false))
-					reject(e)
+					DispatchQueue.main.async {
+						reject(e)
+					}
 					
 				default:
 					return
