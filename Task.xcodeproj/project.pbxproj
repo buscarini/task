@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		ACA30185240531F300AA8AD3 /* SyncValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA30184240531F200AA8AD3 /* SyncValue.swift */; };
 		ACA301872405325900AA8AD3 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA301862405325900AA8AD3 /* Either.swift */; };
+		ACA3018A2405378200AA8AD3 /* ZipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA301882405371F00AA8AD3 /* ZipTests.swift */; };
 		OBJ_100 /* Task+Applicative.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Task+Applicative.swift */; };
 		OBJ_101 /* Task+BiFunctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Task+BiFunctor.swift */; };
 		OBJ_102 /* Task+BiMonad.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Task+BiMonad.swift */; };
@@ -105,6 +106,7 @@
 /* Begin PBXFileReference section */
 		ACA30184240531F200AA8AD3 /* SyncValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncValue.swift; sourceTree = "<group>"; };
 		ACA301862405325900AA8AD3 /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		ACA301882405371F00AA8AD3 /* ZipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipTests.swift; sourceTree = "<group>"; };
 		"NonEmpty::NonEmpty::Product" /* NonEmpty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NonEmpty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Collection+Chunks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Chunks.swift"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				OBJ_37 /* Monad.swift */,
 				OBJ_38 /* Retry.swift */,
 				OBJ_39 /* Tests.swift */,
+				ACA301882405371F00AA8AD3 /* ZipTests.swift */,
 			);
 			name = TaskTests;
 			path = Tests/TaskTests;
@@ -447,6 +450,7 @@
 				OBJ_136 /* Chunked.swift in Sources */,
 				OBJ_137 /* Delay.swift in Sources */,
 				OBJ_138 /* Functor.swift in Sources */,
+				ACA3018A2405378200AA8AD3 /* ZipTests.swift in Sources */,
 				OBJ_139 /* Monad.swift in Sources */,
 				OBJ_140 /* Retry.swift in Sources */,
 				OBJ_141 /* Tests.swift in Sources */,
