@@ -43,25 +43,25 @@ class ConcurrencyTests: XCTestCase {
 		let values = Array(1...10_000)
 		
 		let left = sequence(values.map {
-			Async<Int>.of($0).scheduleOn(.global()).forkOn(.global())
+			Async<Int>.of($0).scheduleOn(.global())
 		})
 		
 		let right = sequence(values.map {
-			Async<Int>.of($0).scheduleOn(.global()).forkOn(.global())
+			Async<Int>.of($0).scheduleOn(.global())
 		})
 		
 		zip(
 			left,
 			right
-			)
-			.scheduleOn(DispatchQueue.global())
-			.run({ result in
-				XCTAssert(result.0 == values)
-				XCTAssert(result.1 == values)
-				finish.fulfill()
-			})
+		)
+		.scheduleOn(DispatchQueue.global())
+		.run({ result in
+			XCTAssert(result.0 == values)
+			XCTAssert(result.1 == values)
+			finish.fulfill()
+		})
 		
-		wait(for: [finish], timeout: 120)
+		wait(for: [finish], timeout: 200)
 	}
 	
 	func testForEach() {
