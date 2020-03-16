@@ -101,5 +101,17 @@ open class Task<E, T> {
 				Task<Never, T?>.of(nil)
 			}
 	}
+	
+	@inlinable
+	func void() -> Task<E, Void> {
+		self.const(())
+	}
+	
+	@inlinable
+	public func const<B>(_ value: B) -> Task<E, B> {
+		self.map { _ in
+			value
+		}
+	}
 }
 
