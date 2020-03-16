@@ -103,7 +103,7 @@ open class Task<E, T> {
 	}
 	
 	@inlinable
-	func void() -> Task<E, Void> {
+	public func void() -> Task<E, Void> {
 		self.const(())
 	}
 	
