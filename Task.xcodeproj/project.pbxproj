@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		AC0028192422429000E70AA4 /* Task+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0028172422428700E70AA4 /* Task+Utils.swift */; };
+		AC1C732C243B09BE002C3F20 /* Sequential.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C732B243B09BD002C3F20 /* Sequential.swift */; };
 		ACA30185240531F300AA8AD3 /* SyncValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA30184240531F200AA8AD3 /* SyncValue.swift */; };
 		ACA301872405325900AA8AD3 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA301862405325900AA8AD3 /* Either.swift */; };
 		ACA3018A2405378200AA8AD3 /* ZipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA301882405371F00AA8AD3 /* ZipTests.swift */; };
@@ -113,6 +114,7 @@
 
 /* Begin PBXFileReference section */
 		AC0028172422428700E70AA4 /* Task+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Utils.swift"; sourceTree = "<group>"; };
+		AC1C732B243B09BD002C3F20 /* Sequential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequential.swift; sourceTree = "<group>"; };
 		ACA30184240531F200AA8AD3 /* SyncValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncValue.swift; sourceTree = "<group>"; };
 		ACA301862405325900AA8AD3 /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		ACA301882405371F00AA8AD3 /* ZipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipTests.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				ACFF75742406632400267604 /* Either+Traversable.swift */,
 				ACFF75762406632400267604 /* Either+Zip.swift */,
 				OBJ_9 /* Array+Traverse.swift */,
+				AC1C732B243B09BD002C3F20 /* Sequential.swift */,
 				OBJ_10 /* Async.swift */,
 				OBJ_11 /* Collection+Chunks.swift */,
 				OBJ_12 /* Curry.swift */,
@@ -514,6 +517,7 @@
 				OBJ_94 /* Array+Traverse.swift in Sources */,
 				OBJ_95 /* Async.swift in Sources */,
 				ACFF75792406632400267604 /* Either+Alt.swift in Sources */,
+				AC1C732C243B09BE002C3F20 /* Sequential.swift in Sources */,
 				OBJ_96 /* Collection+Chunks.swift in Sources */,
 				ACFF75802406632400267604 /* Either+Zip.swift in Sources */,
 				ACFF757F2406632400267604 /* Either+Monad.swift in Sources */,
