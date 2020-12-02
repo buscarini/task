@@ -1,6 +1,6 @@
 # Task
 
-[![CI Status](http://img.shields.io/travis/buscarini@gmail.com/Task.svg?style=flat)](https://travis-ci.org/buscarini@gmail.com/Task)
+![Swift](https://github.com/buscarini/task/workflows/Swift/badge.svg)
 [![Version](https://img.shields.io/cocoapods/v/Task.svg?style=flat)](http://cocoapods.org/pods/Task)
 [![License](https://img.shields.io/cocoapods/l/Task.svg?style=flat)](http://cocoapods.org/pods/Task)
 [![Platform](https://img.shields.io/cocoapods/p/Task.svg?style=flat)](http://cocoapods.org/pods/Task)
