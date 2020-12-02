@@ -29,6 +29,13 @@ extension Task {
 			}
 		})
 	}
+	
+	@inlinable
+	public func `catch`(_ value: T) -> Task<Never, T> {
+		self.flatMapError { _ in
+			Task<Never, T>.of(value)
+		}
+	}
 }
 
 public extension Task where E == Error {
