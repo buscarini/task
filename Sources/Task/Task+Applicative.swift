@@ -82,9 +82,11 @@ public func ap<E, A, B>(_ left: Task<E, (A) -> B>, _ right: Task<E, A>) -> Task<
 		})
 		
 	}, cancel: {
-		cancelled = true
-		l.cancel()
-		r.cancel()
+		apQueue.async {
+			cancelled = true
+			l.cancel()
+			r.cancel()
+		}
 	})
 }
 
