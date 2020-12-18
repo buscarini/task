@@ -15,6 +15,7 @@ public class Sequential {
 		}
 	}
 	public var onStateChange: ((Bool) -> Void)?
+	private var onCancel: () -> Void = {}
 	
 	public init() {
 	}
@@ -39,13 +40,22 @@ public extension Sequential {
 		}
 		
 		self.isRunning = true
+		self.onCancel = { [weak task] in
+			task?.cancel()
+		}
 		
-		task.fork({ e in
-			self.isRunning = false
+		task.fork({ [weak self] e in
+			self?.isRunning = false
+			self?.onCancel = {}
 			reject(e)
-		}, { a in
-			self.isRunning = false
+		}, { [weak self] a in
+			self?.isRunning = false
+			self?.onCancel = {}
 			resolve(a)
 		})
+	}
+	
+	func cancel() {
+		self.onCancel()
 	}
 }
