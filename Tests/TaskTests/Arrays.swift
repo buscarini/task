@@ -20,9 +20,7 @@ class Arrays: XCTestCase {
 		let expectation = self.expectation(description: "task succeeded")
 	
 		[1, 2, 3].traverse { Task<Never, Int>.of($0) }
-			.fork({ error in
-				XCTFail()
-			},
+			.fork(absurd,
 			{ values in
 				XCTAssert(values.count == 3)
 				XCTAssert(values[0] == 1)

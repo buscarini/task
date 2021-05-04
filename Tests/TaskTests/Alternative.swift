@@ -9,7 +9,7 @@ class Alternative: XCTestCase {
 	
     func testAlternative1() {
 		let expectation = self.expectation(description: "task alternative first failed")
-	
+		
 		(or(Task<Error, Int>.rejected(self.exampleError()), Task.of(22)))
 			.fork({ error in
 				XCTFail()

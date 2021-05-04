@@ -28,7 +28,7 @@ public func <|><E, A>(first: Task<E, A>, second: Task<E, A>) -> Task<E, A> {
 
 @inlinable
 public func firstSuccess<E, A>(_ tasks: NonEmptyArray<Task<E, A>>) -> Task<E, A> {
-	tasks.tail.reduce(tasks.head, { acc, item in
+	tasks.dropFirst().reduce(tasks.first, { acc, item in
 		acc <|> item
 	})
 }

@@ -19,9 +19,7 @@ class Applicative: XCTestCase {
 		let expectation = self.expectation(description: "task ap")
 		
 		ap(Task.of({ x in x*2 }), Task<Never, Int>.of(1))
-			.fork({ error in
-				XCTFail()
-			},
+			.fork(absurd,
 			{ value in
 				XCTAssert(value == 2)
 				expectation.fulfill()
@@ -51,9 +49,7 @@ class Applicative: XCTestCase {
 		let expectation = self.expectation(description: "task ap with 2 params")
 		
 		ap(Task.of(+), Task<Never, Int>.of(1), Task<Never, Int>.of(3))
-			.fork({ error in
-				XCTFail()
-			},
+			.fork(absurd,
 			{ value in
 				XCTAssert(value == 4)
 				expectation.fulfill()
@@ -142,9 +138,7 @@ class Applicative: XCTestCase {
 		})
 		
 		(add <*> Task.of(1) <*> Task.of(3) <*> Task.of(7))
-			.fork({ error in
-				XCTFail()
-			},
+			.fork(absurd,
 			{ value in
 				XCTAssert(value == 11)
 				expectation.fulfill()
