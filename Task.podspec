@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Task'
-  s.version          = '0.3.0'
+  s.version          = '0.3.1'
   s.summary          = 'A task encapsulates async code in a pure way.'
 
 # This description is used to generate tags and improve search results.
@@ -29,6 +29,6 @@ Tasks are similar to promises, but they have to be executed explicitly. This fac
   
   s.swift_version = '5.3'
 
-  s.dependency 'NonEmpty', '~> 0.2.2'
+  s.dependency 'NonEmpty', '~> 0.3.1'
 
 end
