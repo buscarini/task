@@ -9,22 +9,22 @@ let package = Package(
 	],
 	dependencies: [
 		.package(
-			name: "NonEmpty",
+			name: "swift-nonempty",
 			url: "https://github.com/pointfreeco/swift-nonempty.git",
-			from: "0.2.2"
+			from: "0.3.1"
 		)
 	],
 	targets: [
 		.target(
 			name: "Task",
 			dependencies: [
-				"NonEmpty"
+				.product(name: "NonEmpty", package: "swift-nonempty")
 			]),
 		.testTarget(
 			name: "TaskTests",
 			dependencies: [
 				"Task",
-				"NonEmpty"
+				.product(name: "NonEmpty", package: "swift-nonempty")
 			]),
 	]
 )

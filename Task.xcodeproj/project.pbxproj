@@ -3,37 +3,6 @@
    archiveVersion = "1";
    objectVersion = "46";
    objects = {
-      "NonEmpty::NonEmpty" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_79";
-         buildPhases = (
-            "OBJ_82",
-            "OBJ_96"
-         );
-         dependencies = (
-         );
-         name = "NonEmpty";
-         productName = "NonEmpty";
-         productReference = "NonEmpty::NonEmpty::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "NonEmpty::NonEmpty::Product" = {
-         isa = "PBXFileReference";
-         path = "NonEmpty.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "NonEmpty::SwiftPMPackageDescription" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_98";
-         buildPhases = (
-            "OBJ_101"
-         );
-         dependencies = (
-         );
-         name = "NonEmptyPackageDescription";
-         productName = "NonEmptyPackageDescription";
-         productType = "com.apple.product-type.framework";
-      };
       "OBJ_1" = {
          isa = "PBXProject";
          attributes = {
@@ -48,15 +17,15 @@
             "en"
          );
          mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_69";
+         productRefGroup = "OBJ_61";
          projectDirPath = ".";
          targets = (
-            "NonEmpty::NonEmpty",
-            "NonEmpty::SwiftPMPackageDescription",
+            "swift-nonempty::NonEmpty",
             "Task::Task",
             "Task::SwiftPMPackageDescription",
             "Task::TaskPackageTests::ProductTarget",
-            "Task::TaskTests"
+            "Task::TaskTests",
+            "swift-nonempty::SwiftPMPackageDescription"
          );
       };
       "OBJ_10" = {
@@ -65,166 +34,44 @@
          sourceTree = "<group>";
       };
       "OBJ_100" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk",
-               "-package-description-version",
-               "5.1.0"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_23";
       };
       "OBJ_101" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_102"
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_24";
       };
       "OBJ_102" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_68";
+         fileRef = "OBJ_25";
+      };
+      "OBJ_103" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_26";
       };
       "OBJ_104" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_105",
-            "OBJ_106"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_27";
       };
       "OBJ_105" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Task.xcodeproj/Task_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "9.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "Task";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Task";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_28";
       };
       "OBJ_106" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Task.xcodeproj/Task_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "9.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "Task";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Task";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_29";
       };
       "OBJ_107" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_108",
-            "OBJ_109",
-            "OBJ_110",
-            "OBJ_111",
-            "OBJ_112",
-            "OBJ_113",
-            "OBJ_114",
-            "OBJ_115",
-            "OBJ_116",
-            "OBJ_117",
-            "OBJ_118",
-            "OBJ_119",
-            "OBJ_120",
-            "OBJ_121",
-            "OBJ_122",
-            "OBJ_123",
-            "OBJ_124",
-            "OBJ_125",
-            "OBJ_126",
-            "OBJ_127",
-            "OBJ_128",
-            "OBJ_129",
-            "OBJ_130",
-            "OBJ_131",
-            "OBJ_132",
-            "OBJ_133",
-            "OBJ_134",
-            "OBJ_135",
-            "OBJ_136",
-            "OBJ_137"
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_30";
       };
       "OBJ_108" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
+         fileRef = "OBJ_31";
       };
       "OBJ_109" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_10";
+         fileRef = "OBJ_32";
       };
       "OBJ_11" = {
          isa = "PBXFileReference";
@@ -233,43 +80,41 @@
       };
       "OBJ_110" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_11";
+         fileRef = "OBJ_33";
       };
       "OBJ_111" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_12";
+         fileRef = "OBJ_34";
       };
       "OBJ_112" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_13";
+         fileRef = "OBJ_35";
       };
       "OBJ_113" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_14";
+         fileRef = "OBJ_36";
       };
       "OBJ_114" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_15";
+         fileRef = "OBJ_37";
       };
       "OBJ_115" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
+         fileRef = "OBJ_38";
       };
       "OBJ_116" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_117"
+         );
       };
       "OBJ_117" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_18";
+         fileRef = "swift-nonempty::NonEmpty::Product";
       };
       "OBJ_118" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_19";
-      };
-      "OBJ_119" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_20";
+         isa = "PBXTargetDependency";
+         target = "swift-nonempty::NonEmpty";
       };
       "OBJ_12" = {
          isa = "PBXFileReference";
@@ -277,91 +122,214 @@
          sourceTree = "<group>";
       };
       "OBJ_120" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_21";
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_121",
+            "OBJ_122"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
       "OBJ_121" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_22";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
+               "-package-description-version",
+               "5.3.0"
+            );
+            SWIFT_VERSION = "5.0";
+         };
+         name = "Debug";
       };
       "OBJ_122" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_23";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
+               "-package-description-version",
+               "5.3.0"
+            );
+            SWIFT_VERSION = "5.0";
+         };
+         name = "Release";
       };
       "OBJ_123" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_24";
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_124"
+         );
       };
       "OBJ_124" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_25";
-      };
-      "OBJ_125" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_26";
+         fileRef = "OBJ_6";
       };
       "OBJ_126" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_27";
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_127",
+            "OBJ_128"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
       "OBJ_127" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_28";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Debug";
       };
       "OBJ_128" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_29";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Release";
       };
       "OBJ_129" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_30";
+         isa = "PBXTargetDependency";
+         target = "Task::TaskTests";
       };
       "OBJ_13" = {
          isa = "PBXFileReference";
          path = "Either+Alt.swift";
          sourceTree = "<group>";
       };
-      "OBJ_130" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_31";
-      };
       "OBJ_131" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_32";
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_132",
+            "OBJ_133"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
       "OBJ_132" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_33";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            CURRENT_PROJECT_VERSION = "1";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Task.xcodeproj/TaskTests_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "14.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.15";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "TaskTests";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "7.0";
+         };
+         name = "Debug";
       };
       "OBJ_133" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_34";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            CURRENT_PROJECT_VERSION = "1";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Task.xcodeproj/TaskTests_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "14.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.15";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "TaskTests";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "7.0";
+         };
+         name = "Release";
       };
       "OBJ_134" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_35";
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_135",
+            "OBJ_136",
+            "OBJ_137",
+            "OBJ_138",
+            "OBJ_139",
+            "OBJ_140",
+            "OBJ_141",
+            "OBJ_142",
+            "OBJ_143",
+            "OBJ_144",
+            "OBJ_145"
+         );
       };
       "OBJ_135" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_36";
+         fileRef = "OBJ_41";
       };
       "OBJ_136" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_37";
+         fileRef = "OBJ_42";
       };
       "OBJ_137" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_38";
+         fileRef = "OBJ_43";
       };
       "OBJ_138" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_139"
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_44";
       };
       "OBJ_139" = {
          isa = "PBXBuildFile";
-         fileRef = "NonEmpty::NonEmpty::Product";
+         fileRef = "OBJ_45";
       };
       "OBJ_14" = {
          isa = "PBXFileReference";
@@ -369,78 +337,47 @@
          sourceTree = "<group>";
       };
       "OBJ_140" = {
-         isa = "PBXTargetDependency";
-         target = "NonEmpty::NonEmpty";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_46";
+      };
+      "OBJ_141" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_47";
       };
       "OBJ_142" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_143",
-            "OBJ_144"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_48";
       };
       "OBJ_143" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk",
-               "-package-description-version",
-               "5.3.0"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_49";
       };
       "OBJ_144" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk",
-               "-package-description-version",
-               "5.3.0"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_50";
       };
       "OBJ_145" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_146"
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_51";
       };
       "OBJ_146" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_147",
+            "OBJ_148"
+         );
+      };
+      "OBJ_147" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_6";
+         fileRef = "Task::Task::Product";
       };
       "OBJ_148" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_149",
-            "OBJ_150"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
+         isa = "PBXBuildFile";
+         fileRef = "swift-nonempty::NonEmpty::Product";
       };
       "OBJ_149" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Debug";
+         isa = "PBXTargetDependency";
+         target = "Task::Task";
       };
       "OBJ_15" = {
          isa = "PBXFileReference";
@@ -448,194 +385,73 @@
          sourceTree = "<group>";
       };
       "OBJ_150" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Release";
-      };
-      "OBJ_151" = {
          isa = "PBXTargetDependency";
-         target = "Task::TaskTests";
+         target = "swift-nonempty::NonEmpty";
       };
-      "OBJ_153" = {
+      "OBJ_152" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_154",
-            "OBJ_155"
+            "OBJ_153",
+            "OBJ_154"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_154" = {
+      "OBJ_153" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Task.xcodeproj/TaskTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "14.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.15";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
+            LD = "/usr/bin/true";
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
+               "-package-description-version",
+               "5.1.0"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "TaskTests";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
          name = "Debug";
       };
-      "OBJ_155" = {
+      "OBJ_154" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Task.xcodeproj/TaskTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "14.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.15";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
+            LD = "/usr/bin/true";
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
+               "-package-description-version",
+               "5.1.0"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "TaskTests";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
          name = "Release";
       };
-      "OBJ_156" = {
+      "OBJ_155" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_157",
-            "OBJ_158",
-            "OBJ_159",
-            "OBJ_160",
-            "OBJ_161",
-            "OBJ_162",
-            "OBJ_163",
-            "OBJ_164",
-            "OBJ_165",
-            "OBJ_166",
-            "OBJ_167"
+            "OBJ_156"
          );
       };
-      "OBJ_157" = {
+      "OBJ_156" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_41";
-      };
-      "OBJ_158" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_42";
-      };
-      "OBJ_159" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_43";
+         fileRef = "OBJ_60";
       };
       "OBJ_16" = {
          isa = "PBXFileReference";
          path = "Either+Error.swift";
          sourceTree = "<group>";
       };
-      "OBJ_160" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_44";
-      };
-      "OBJ_161" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_45";
-      };
-      "OBJ_162" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_46";
-      };
-      "OBJ_163" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_47";
-      };
-      "OBJ_164" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_48";
-      };
-      "OBJ_165" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_49";
-      };
-      "OBJ_166" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_50";
-      };
-      "OBJ_167" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_51";
-      };
-      "OBJ_168" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_169",
-            "OBJ_170"
-         );
-      };
-      "OBJ_169" = {
-         isa = "PBXBuildFile";
-         fileRef = "Task::Task::Product";
-      };
       "OBJ_17" = {
          isa = "PBXFileReference";
          path = "Either+Monad.swift";
          sourceTree = "<group>";
-      };
-      "OBJ_170" = {
-         isa = "PBXBuildFile";
-         fileRef = "NonEmpty::NonEmpty::Product";
-      };
-      "OBJ_171" = {
-         isa = "PBXTargetDependency";
-         target = "Task::Task";
-      };
-      "OBJ_172" = {
-         isa = "PBXTargetDependency";
-         target = "NonEmpty::NonEmpty";
       };
       "OBJ_18" = {
          isa = "PBXFileReference";
@@ -730,14 +546,9 @@
             PRODUCT_NAME = "$(TARGET_NAME)";
             SDKROOT = "macosx";
             SUPPORTED_PLATFORMS = (
-               "macosx",
-               "iphoneos",
-               "iphonesimulator",
-               "appletvos",
-               "appletvsimulator",
-               "watchos",
-               "watchsimulator"
+               "$(AVAILABLE_PLATFORMS)"
             );
+            SUPPORTS_MACCATALYST = "YES";
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)",
                "SWIFT_PACKAGE",
@@ -823,14 +634,9 @@
             PRODUCT_NAME = "$(TARGET_NAME)";
             SDKROOT = "macosx";
             SUPPORTED_PLATFORMS = (
-               "macosx",
-               "iphoneos",
-               "iphonesimulator",
-               "appletvos",
-               "appletvsimulator",
-               "watchos",
-               "watchsimulator"
+               "$(AVAILABLE_PLATFORMS)"
             );
+            SUPPORTS_MACCATALYST = "YES";
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)",
                "SWIFT_PACKAGE"
@@ -911,12 +717,12 @@
             "OBJ_7",
             "OBJ_39",
             "OBJ_52",
-            "OBJ_69",
-            "OBJ_73",
-            "OBJ_74",
-            "OBJ_75",
-            "OBJ_76",
-            "OBJ_77"
+            "OBJ_61",
+            "OBJ_65",
+            "OBJ_66",
+            "OBJ_67",
+            "OBJ_68",
+            "OBJ_69"
          );
          path = "";
          sourceTree = "<group>";
@@ -944,9 +750,9 @@
          isa = "PBXGroup";
          children = (
             "OBJ_54",
-            "OBJ_68"
+            "OBJ_60"
          );
-         name = "NonEmpty 0.2.2";
+         name = "swift-nonempty 0.3.1";
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
@@ -957,15 +763,7 @@
             "OBJ_56",
             "OBJ_57",
             "OBJ_58",
-            "OBJ_59",
-            "OBJ_60",
-            "OBJ_61",
-            "OBJ_62",
-            "OBJ_63",
-            "OBJ_64",
-            "OBJ_65",
-            "OBJ_66",
-            "OBJ_67"
+            "OBJ_59"
          );
          name = "NonEmpty";
          path = ".build/checkouts/swift-nonempty.git-4637699114744936164/Sources/NonEmpty";
@@ -973,27 +771,27 @@
       };
       "OBJ_55" = {
          isa = "PBXFileReference";
-         path = "NonEmpty+Array.swift";
+         path = "NonEmpty+Dictionary.swift";
          sourceTree = "<group>";
       };
       "OBJ_56" = {
          isa = "PBXFileReference";
-         path = "NonEmpty+BidirectionalCollection.swift";
+         path = "NonEmpty+RangeReplaceableCollection.swift";
          sourceTree = "<group>";
       };
       "OBJ_57" = {
          isa = "PBXFileReference";
-         path = "NonEmpty+Collection.swift";
+         path = "NonEmpty+SetAlgebra.swift";
          sourceTree = "<group>";
       };
       "OBJ_58" = {
          isa = "PBXFileReference";
-         path = "NonEmpty+Comparable.swift";
+         path = "NonEmpty+String.swift";
          sourceTree = "<group>";
       };
       "OBJ_59" = {
          isa = "PBXFileReference";
-         path = "NonEmpty+Decodable.swift";
+         path = "NonEmpty.swift";
          sourceTree = "<group>";
       };
       "OBJ_6" = {
@@ -1004,61 +802,46 @@
       };
       "OBJ_60" = {
          isa = "PBXFileReference";
-         path = "NonEmpty+Dictionary.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_61" = {
-         isa = "PBXFileReference";
-         path = "NonEmpty+MutableCollection.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_62" = {
-         isa = "PBXFileReference";
-         path = "NonEmpty+Random.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_63" = {
-         isa = "PBXFileReference";
-         path = "NonEmpty+RandomAccessCollection.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_64" = {
-         isa = "PBXFileReference";
-         path = "NonEmpty+RangeReplaceableCollection.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_65" = {
-         isa = "PBXFileReference";
-         path = "NonEmpty+SetAlgebra.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_66" = {
-         isa = "PBXFileReference";
-         path = "NonEmpty+String.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_67" = {
-         isa = "PBXFileReference";
-         path = "NonEmpty.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_68" = {
-         isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
          path = "/Users/josanchez/prog/task/.build/checkouts/swift-nonempty.git-4637699114744936164/Package.swift";
          sourceTree = "<group>";
       };
-      "OBJ_69" = {
+      "OBJ_61" = {
          isa = "PBXGroup";
          children = (
+            "swift-nonempty::NonEmpty::Product",
             "Task::Task::Product",
-            "Task::TaskTests::Product",
-            "NonEmpty::NonEmpty::Product"
+            "Task::TaskTests::Product"
          );
          name = "Products";
          path = "";
          sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "OBJ_65" = {
+         isa = "PBXFileReference";
+         path = "Task.xcworkspace";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_66" = {
+         isa = "PBXFileReference";
+         path = "CODE_OF_CONDUCT.md";
+         sourceTree = "<group>";
+      };
+      "OBJ_67" = {
+         isa = "PBXFileReference";
+         path = "LICENSE";
+         sourceTree = "<group>";
+      };
+      "OBJ_68" = {
+         isa = "PBXFileReference";
+         path = "README.md";
+         sourceTree = "<group>";
+      };
+      "OBJ_69" = {
+         isa = "PBXFileReference";
+         path = "Task.podspec";
+         sourceTree = "<group>";
       };
       "OBJ_7" = {
          isa = "PBXGroup";
@@ -1069,39 +852,128 @@
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_73" = {
-         isa = "PBXFileReference";
-         path = "Task.xcworkspace";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_74" = {
-         isa = "PBXFileReference";
-         path = "CODE_OF_CONDUCT.md";
-         sourceTree = "<group>";
-      };
-      "OBJ_75" = {
-         isa = "PBXFileReference";
-         path = "LICENSE";
-         sourceTree = "<group>";
-      };
-      "OBJ_76" = {
-         isa = "PBXFileReference";
-         path = "README.md";
-         sourceTree = "<group>";
-      };
-      "OBJ_77" = {
-         isa = "PBXFileReference";
-         path = "Task.podspec";
-         sourceTree = "<group>";
-      };
-      "OBJ_79" = {
+      "OBJ_71" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_80",
-            "OBJ_81"
+            "OBJ_72",
+            "OBJ_73"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
+      };
+      "OBJ_72" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CURRENT_PROJECT_VERSION = "1";
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Task.xcodeproj/NonEmpty_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "9.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "NonEmpty";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "NonEmpty";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_73" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CURRENT_PROJECT_VERSION = "1";
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Task.xcodeproj/NonEmpty_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "9.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "NonEmpty";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "NonEmpty";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
+      };
+      "OBJ_74" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_75",
+            "OBJ_76",
+            "OBJ_77",
+            "OBJ_78",
+            "OBJ_79"
+         );
+      };
+      "OBJ_75" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_55";
+      };
+      "OBJ_76" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_56";
+      };
+      "OBJ_77" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_57";
+      };
+      "OBJ_78" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_58";
+      };
+      "OBJ_79" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_59";
       };
       "OBJ_8" = {
          isa = "PBXGroup";
@@ -1142,8 +1014,23 @@
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_80" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
+      };
+      "OBJ_82" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_83",
+            "OBJ_84"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_83" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
+            CURRENT_PROJECT_VERSION = "1";
             ENABLE_TESTABILITY = "YES";
             FRAMEWORK_SEARCH_PATHS = (
                "$(inherited)",
@@ -1152,7 +1039,7 @@
             HEADER_SEARCH_PATHS = (
                "$(inherited)"
             );
-            INFOPLIST_FILE = "Task.xcodeproj/NonEmpty_Info.plist";
+            INFOPLIST_FILE = "Task.xcodeproj/Task_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "9.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
@@ -1168,7 +1055,7 @@
             OTHER_SWIFT_FLAGS = (
                "$(inherited)"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "NonEmpty";
+            PRODUCT_BUNDLE_IDENTIFIER = "Task";
             PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
             PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
             SKIP_INSTALL = "YES";
@@ -1176,15 +1063,16 @@
                "$(inherited)"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "NonEmpty";
+            TARGET_NAME = "Task";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
          name = "Debug";
       };
-      "OBJ_81" = {
+      "OBJ_84" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
+            CURRENT_PROJECT_VERSION = "1";
             ENABLE_TESTABILITY = "YES";
             FRAMEWORK_SEARCH_PATHS = (
                "$(inherited)",
@@ -1193,7 +1081,7 @@
             HEADER_SEARCH_PATHS = (
                "$(inherited)"
             );
-            INFOPLIST_FILE = "Task.xcodeproj/NonEmpty_Info.plist";
+            INFOPLIST_FILE = "Task.xcodeproj/Task_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "9.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
@@ -1209,7 +1097,7 @@
             OTHER_SWIFT_FLAGS = (
                "$(inherited)"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "NonEmpty";
+            PRODUCT_BUNDLE_IDENTIFIER = "Task";
             PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
             PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
             SKIP_INSTALL = "YES";
@@ -1217,18 +1105,15 @@
                "$(inherited)"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "NonEmpty";
+            TARGET_NAME = "Task";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
          name = "Release";
       };
-      "OBJ_82" = {
+      "OBJ_85" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_83",
-            "OBJ_84",
-            "OBJ_85",
             "OBJ_86",
             "OBJ_87",
             "OBJ_88",
@@ -1238,36 +1123,44 @@
             "OBJ_92",
             "OBJ_93",
             "OBJ_94",
-            "OBJ_95"
+            "OBJ_95",
+            "OBJ_96",
+            "OBJ_97",
+            "OBJ_98",
+            "OBJ_99",
+            "OBJ_100",
+            "OBJ_101",
+            "OBJ_102",
+            "OBJ_103",
+            "OBJ_104",
+            "OBJ_105",
+            "OBJ_106",
+            "OBJ_107",
+            "OBJ_108",
+            "OBJ_109",
+            "OBJ_110",
+            "OBJ_111",
+            "OBJ_112",
+            "OBJ_113",
+            "OBJ_114",
+            "OBJ_115"
          );
-      };
-      "OBJ_83" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_55";
-      };
-      "OBJ_84" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_56";
-      };
-      "OBJ_85" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_57";
       };
       "OBJ_86" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_58";
+         fileRef = "OBJ_9";
       };
       "OBJ_87" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_59";
+         fileRef = "OBJ_10";
       };
       "OBJ_88" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_60";
+         fileRef = "OBJ_11";
       };
       "OBJ_89" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_61";
+         fileRef = "OBJ_12";
       };
       "OBJ_9" = {
          isa = "PBXFileReference";
@@ -1276,65 +1169,49 @@
       };
       "OBJ_90" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_62";
+         fileRef = "OBJ_13";
       };
       "OBJ_91" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_63";
+         fileRef = "OBJ_14";
       };
       "OBJ_92" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_64";
+         fileRef = "OBJ_15";
       };
       "OBJ_93" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_65";
+         fileRef = "OBJ_16";
       };
       "OBJ_94" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_66";
+         fileRef = "OBJ_17";
       };
       "OBJ_95" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_67";
+         fileRef = "OBJ_18";
       };
       "OBJ_96" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_19";
+      };
+      "OBJ_97" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_20";
       };
       "OBJ_98" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_99",
-            "OBJ_100"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_21";
       };
       "OBJ_99" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk",
-               "-package-description-version",
-               "5.1.0"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_22";
       };
       "Task::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_142";
+         buildConfigurationList = "OBJ_120";
          buildPhases = (
-            "OBJ_145"
+            "OBJ_123"
          );
          dependencies = (
          );
@@ -1344,13 +1221,13 @@
       };
       "Task::Task" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_104";
+         buildConfigurationList = "OBJ_82";
          buildPhases = (
-            "OBJ_107",
-            "OBJ_138"
+            "OBJ_85",
+            "OBJ_116"
          );
          dependencies = (
-            "OBJ_140"
+            "OBJ_118"
          );
          name = "Task";
          productName = "Task";
@@ -1364,25 +1241,25 @@
       };
       "Task::TaskPackageTests::ProductTarget" = {
          isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_148";
+         buildConfigurationList = "OBJ_126";
          buildPhases = (
          );
          dependencies = (
-            "OBJ_151"
+            "OBJ_129"
          );
          name = "TaskPackageTests";
          productName = "TaskPackageTests";
       };
       "Task::TaskTests" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_153";
+         buildConfigurationList = "OBJ_131";
          buildPhases = (
-            "OBJ_156",
-            "OBJ_168"
+            "OBJ_134",
+            "OBJ_146"
          );
          dependencies = (
-            "OBJ_171",
-            "OBJ_172"
+            "OBJ_149",
+            "OBJ_150"
          );
          name = "TaskTests";
          productName = "TaskTests";
@@ -1393,6 +1270,37 @@
          isa = "PBXFileReference";
          path = "TaskTests.xctest";
          sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "swift-nonempty::NonEmpty" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_71";
+         buildPhases = (
+            "OBJ_74",
+            "OBJ_80"
+         );
+         dependencies = (
+         );
+         name = "NonEmpty";
+         productName = "NonEmpty";
+         productReference = "swift-nonempty::NonEmpty::Product";
+         productType = "com.apple.product-type.framework";
+      };
+      "swift-nonempty::NonEmpty::Product" = {
+         isa = "PBXFileReference";
+         path = "NonEmpty.framework";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "swift-nonempty::SwiftPMPackageDescription" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_152";
+         buildPhases = (
+            "OBJ_155"
+         );
+         dependencies = (
+         );
+         name = "swift-nonemptyPackageDescription";
+         productName = "swift-nonemptyPackageDescription";
+         productType = "com.apple.product-type.framework";
       };
    };
    rootObject = "OBJ_1";
