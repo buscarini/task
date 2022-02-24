@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "NonEmpty",
+        "package": "swift-nonempty",
         "repositoryURL": "https://github.com/pointfreeco/swift-nonempty.git",
         "state": {
           "branch": null,
-          "revision": "9ef8c4aea57b8da7fedd5303d29470ea2a00c08d",
-          "version": "0.2.2"
+          "revision": "8074e5f2e4a6de5a42476e545cc33438021aa2a4",
+          "version": "0.4.0"
         }
       }
     ]
